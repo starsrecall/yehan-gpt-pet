@@ -1,0 +1,78 @@
+<!doctype html>
+<!--
+  输入区形状回归夹具。根据用户的“方形外蓝框＋黑色圆角内层”截图构造，
+  不是实机 DOM；不含真实账号或聊天资料。圆角与多层背景只模拟可观察症状。
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>夜航 · 输入表面形状回归</title>
+  <style>
+    @layer theme,base,components,utilities;
+    @layer theme {
+      :root {--color-surface:#30343f;--color-surface-secondary:#3a3f4b;--color-background-panel:#151515;--main-surface-primary:#151515;--composer-surface-primary:#151515;--color-text-primary:#edf0f5;}
+      [data-theme="dark"].native-theme-scope {--color-background-panel:#101010;--main-surface-primary:#101010;--composer-surface-primary:#101010;}
+    }
+    @layer base {
+      * {box-sizing:border-box;}
+      body {margin:0;font:15px/1.65 system-ui,sans-serif;background:#20242d;color:var(--color-text-primary);}
+      button {font:inherit;color:inherit;cursor:pointer;}
+      [hidden] {display:none !important;}
+    }
+    @layer components {
+      .page-shell {min-height:100vh;display:grid;grid-template-columns:240px minmax(0,1fr);}
+      .app-shell-left-panel {background:var(--color-surface);padding:25px 20px;}
+      .sidebar-nav {display:grid;gap:16px;margin-top:32px;}
+      main {min-width:0;background:var(--color-surface);}
+      .main-header {height:74px;display:flex;justify-content:space-between;align-items:center;padding:0 28px;}
+      .fixture-tag {font-size:11px;color:#bfd3e8;border:1px solid #7fa4c555;padding:5px 10px;border-radius:9px;}
+      .conversation {width:min(940px,calc(100% - 70px));margin:50px auto;}
+      .message {border:1px solid #8294b444;border-radius:15px;padding:20px 25px;margin:0 0 25px;background:#222c3b;}
+      .native-wrapper {width:100%;margin:40px auto 0;padding:0;border:0;border-radius:0;background:transparent;outline:none;box-shadow:none;}
+      .native-theme-scope {margin:0;padding:0;background:transparent;border-radius:0;}
+      .native-surface {position:relative;border:1px solid #79839244;border-radius:__RADIUS__px;background:var(--color-background-panel);overflow:visible;}
+      .editor-region {padding:21px 25px 10px;}
+      .native-editor {min-height:70px;max-height:132px;overflow:auto;outline:none;white-space:pre-wrap;overflow-wrap:anywhere;}
+      .native-editor:focus-visible {outline:2px solid #9aceed;outline-offset:2px;}
+      .native-toolbar {display:flex;justify-content:space-between;align-items:center;gap:15px;padding:8px 21px 17px;}
+      .native-toolbar button {border:0;background:transparent;border-radius:8px;padding:5px 9px;}
+      #send-native {background:#86cbd7;color:#092631;border-radius:50%;width:38px;height:38px;}
+      .attachments {display:flex;flex-wrap:wrap;gap:9px;padding:20px 22px 0;}
+      .attachment-chip {display:flex;align-items:center;gap:8px;min-width:190px;padding:9px 13px;border-radius:12px;border:1px solid #94a9c555;background:#28354a;}
+      .attachment-chip button {padding:0 5px;background:transparent;border:0;}
+      .native-disclaimer {text-align:center;font-size:11px;color:#9fb2cb;margin:12px 0 0;}
+      .native-menu {position:absolute;right:22px;top:calc(100% - 5px);width:230px;z-index:20;border-radius:12px;padding:10px;background:var(--color-surface);}
+      .native-menu [data-theme] {padding:8px;background:var(--color-background-panel);border-radius:7px;}
+      .native-menu button {border:0;background:transparent;border-radius:5px;padding:6px 9px;}
+      .protected-editor {min-height:25px;border-radius:0;}
+      .protected-native-form {position:fixed;top:85px;right:35px;width:240px;z-index:30;padding:12px;}
+      .protected-native-form .composer-surface-chrome {background:var(--color-background-panel);border-radius:12px;padding:8px;}
+      .test-output {min-height:30px;margin:15px 0 0;color:#aad5ee;}
+    }
+    @media(max-width:850px) {.page-shell {grid-template-columns:170px minmax(0,1fr);} .conversation {width:calc(100% - 36px);} .main-header {padding:0 16px;} .fixture-tag {max-width:205px;} .attachment-chip {min-width:150px;}}
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="app-shell-left-panel"><strong>ChatGPT　⌄</strong><nav class="sidebar-nav"><span>新聊天</span><span>资料库</span><span>夜航 · 形状回归</span></nav></aside>
+    <main>
+      <header class="main-header"><span>长对话中的普通输入区</span><span class="fixture-tag">来源派生形状测试 · 非实机 DOM<br>__VARIANT__ / 原生圆角 __RADIUS__px</span></header>
+      <section class="conversation"><article class="message"><strong>验证真实圆角表面</strong><p>输入框的内层应是一块连续的玻璃表面。外面的布局表单保持原生形状、大小和位置。</p><p>多行附件、编辑器滚动、焦点与菜单均使用夹具的原生元素。</p></article>
+        <form class="native-wrapper __FORM_CLASS__" id="composer-wrapper" __FORM_ATTR__>
+          <div class="native-theme-scope __SCOPE_CLASS__" id="composer-theme-scope" __THEME_ATTR__>
+            <div class="native-surface __SURFACE_CLASS__" id="actual-rounded-surface" __SURFACE_STYLE__ __SURFACE_ATTR__>
+              <div class="attachments" id="native-attachments" hidden>__ATTACHMENT_CHIPS__</div>
+              <div class="editor-region" id="editor-region"><div class="native-editor ProseMirror" id="__EDITOR_ID__" contenteditable="true" role="textbox" aria-label="输入消息">输入区保持原有左右留白。</div></div>
+              <div class="native-toolbar" id="native-toolbar"><button id="attach-native" type="button" aria-label="添加附件" aria-pressed="false"><span id="attach-icon">＋</span></button><button id="model-native" type="button" aria-haspopup="menu" aria-expanded="false">模型　⌄</button><button id="send-native" type="button" aria-label="发送">↑</button></div>
+              <div class="native-menu" id="native-menu" role="menu" hidden><div data-theme="dark" id="nested-menu-theme"><button type="button" role="menuitem">原生模型菜单</button></div></div>
+            </div>
+          </div>
+          <p class="native-disclaimer" id="native-disclaimer">输入区外围的布局表单不应出现方形蓝框。</p>
+        </form>
+        <form role="dialog" class="protected-native-form" id="protected-native-form" hidden><div data-theme="dark"><div class="composer-surface-chrome" id="protected-native-surface"><div class="protected-editor ProseMirror" contenteditable="true" role="textbox" aria-label="受保护编辑器">弹层内部输入</div></div></div></form>
+        <div class="test-output" id="test-output"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

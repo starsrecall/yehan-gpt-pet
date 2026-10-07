@@ -1,0 +1,22 @@
+# 本机开发依赖、浏览器资料和临时运行工件不属于源码分享。
+node_modules/
+.test-profiles/
+**/dynamic-wireframe-artifacts/
+**/composer-artifacts/
+**/*-latest.json
+**/*-after.json
+**/*-before.json
+docs/assets/regression-*/
+
+# 签名私钥、打包产物与个人环境文件不进入仓库。
+*.pem
+*.key
+*.crx
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
+
+# releases 中保留明确整理的版本 ZIP；其余临时压缩包默认不收录。
+/*.zip

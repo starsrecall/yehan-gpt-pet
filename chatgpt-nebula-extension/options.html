@@ -1,0 +1,72 @@
+<!doctype html>
+<!-- 夜航设置页：仅管理扩展本机外观配置，不读取 ChatGPT 会话。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夜航 · 外观设置</title>
+  <link rel="stylesheet" href="options.css">
+  <script src="shared/settings.js" defer></script>
+  <script src="shared/media-store.js" defer></script>
+  <script src="options.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <a class="brand" href="#top" aria-label="夜航设置页顶部"><span class="brand-mark" aria-hidden="true">◒</span><span>夜航<small>NEBULA / CHATGPT</small></span></a>
+      <span class="local-badge"><span aria-hidden="true"></span> 本机保存</span>
+    </header>
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">留一点属于自己的空间</p>
+        <h1 id="page-title">让对话，驶入夜色。</h1>
+        <p>一张壁纸，一点通透感。调整你的 ChatGPT 网页外观，设置会自动保存在这台浏览器中。</p>
+      </section>
+      <div class="workspace">
+        <section class="preview-section" aria-labelledby="preview-title">
+          <div class="section-heading"><h2 id="preview-title">外观预览</h2><span>设计示意</span></div>
+          <div class="preview" id="preview" data-mode="soft">
+            <iframe src="backdrop.html?preview=1" title="夜航背景预览" tabindex="-1" aria-hidden="true"></iframe>
+            <div class="preview-ui" aria-hidden="true">
+              <aside class="preview-sidebar"><strong>ChatGPT</strong><span class="preview-new">＋ 新对话</span><small>最近</small><span>关于夜晚的奇思妙想</span><span>把灵感留在这里</span><span>另一个小实验</span><i></i><span class="preview-user">◉ 我的空间</span></aside>
+              <div class="preview-chat"><span class="preview-model">ChatGPT ⌄</span><div class="preview-greeting"><span class="preview-star">✧</span><h3>今天，想探索什么？</h3><p>让每一次提问，都有自己的风景。</p></div><div class="preview-composer">向 ChatGPT 提问<div><span>＋</span><b>↑</b></div></div><small class="preview-note">ChatGPT 也可能会犯错。</small></div>
+            </div>
+            <span class="preview-paused" id="preview-paused" hidden>皮肤已关闭</span>
+          </div>
+          <p class="preview-caption">这里用于预览背景与面板风格。真实网页效果取决于 ChatGPT 当前的页面结构。</p>
+          <div class="runtime-card"><span class="status-dot" aria-hidden="true"></span><div><h3>运行提示</h3><p id="runtime-status" role="status">尚未收到网页或背景的状态报告。预览不代表真实账号网页已验证。</p></div></div>
+          <div class="notes"><h3>为自己的节奏留白</h3><p>关闭动态后，视频会暂停，GIF 会显示静态封面；系统开启“减少动态效果”时也会保持安静。本机素材不会上传。</p><p>扩展只改变外观。若网页改版影响显示，可先切换轻量模式，或关闭皮肤继续聊天。</p></div>
+        </section>
+        <div class="control-column">
+          <section class="card" aria-labelledby="appearance-title">
+            <div class="card-heading"><div><p class="eyebrow">01 / 外观</p><h2 id="appearance-title">你的夜航模式</h2></div><label class="switch"><input id="enabled" type="checkbox" checked><span class="switch-track" aria-hidden="true"></span><span class="switch-label">启用皮肤</span></label></div>
+            <div class="field"><label for="mode">面板风格</label><select id="mode"><option value="soft">轻量 · 稳定、清晰</option><option value="glass">通透 · 更明显的玻璃效果</option></select><p class="field-hint">轻量模式主要调整配色；通透模式额外增强侧栏与输入区域。</p></div>
+            <div class="field"><span class="field-label" id="preset-label">背景预设</span><div class="presets" role="group" aria-labelledby="preset-label"><button type="button" id="preset-aurora" class="preset" data-preset="aurora" aria-pressed="true"><span class="swatch aurora" aria-hidden="true"></span><span>极光</span></button><button type="button" id="preset-midnight" class="preset" data-preset="midnight" aria-pressed="false"><span class="swatch midnight" aria-hidden="true"></span><span>深海</span></button><button type="button" id="preset-paper" class="preset" data-preset="paper" aria-pressed="false"><span class="swatch paper" aria-hidden="true"></span><span>暮纸</span></button><button type="button" id="preset-character" class="preset" data-preset="character" aria-pressed="false"><span class="swatch character" aria-hidden="true"></span><span>星夜角色</span></button><button type="button" id="preset-wireframe" class="preset" data-preset="wireframe" aria-pressed="false"><span class="swatch wireframe" aria-hidden="true"></span><span>线框蓝光</span></button></div><button type="button" class="button look-action" id="apply-wireframe-look">应用原版风格 · 线框蓝光</button><p class="field-hint">同时调整通透度、压暗、模糊、青蓝强调色、扫描纹理和人物画面切换；保留动态开关与本机素材。动态关闭时仍为静态线框。</p></div>
+          </section>
+          <section class="card" aria-labelledby="media-title">
+            <div class="card-heading"><div><p class="eyebrow">02 / 素材</p><h2 id="media-title">换成你的风景</h2></div><span class="tag">仅本机</span></div>
+            <label class="upload-zone" for="media-file"><span class="upload-symbol" aria-hidden="true">＋</span><strong>选择图片或视频</strong><span>PNG、JPG、WebP、GIF、MP4、WebM · 最大 50 MiB</span><input id="media-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif,video/mp4,video/webm,.png,.jpg,.jpeg,.webp,.gif,.mp4,.webm"></label>
+            <p class="media-status" id="media-status" role="status">正在读取本机素材…</p>
+            <div class="media-actions"><button id="use-custom" type="button" class="button secondary" disabled>使用已保存素材</button><button id="clear-media" type="button" class="text-button danger" disabled>清除本机素材</button></div>
+            <div id="clear-confirmation" class="confirmation" hidden><p id="clear-description"></p><div><button id="confirm-clear" type="button" class="button danger-button">确认清除这份素材</button><button id="cancel-clear" type="button" class="text-button">取消</button></div></div>
+          </section>
+          <section class="card" aria-labelledby="details-title">
+            <div class="card-heading"><div><p class="eyebrow">03 / 细节</p><h2 id="details-title">把光线调到刚好</h2></div></div>
+            <div class="slider-field"><label for="dim">背景压暗</label><output for="dim" id="dim-value">35%</output><input id="dim" type="range" min="0" max="90" step="1" value="35"></div>
+            <div class="slider-field"><label for="panelOpacity">面板不透明度</label><output for="panelOpacity" id="panelOpacity-value">82%</output><input id="panelOpacity" type="range" min="20" max="100" step="1" value="82"></div>
+            <div class="slider-field"><label for="blur">面板模糊</label><output for="blur" id="blur-value">8 px</output><input id="blur" type="range" min="0" max="24" step="1" value="8"></div>
+            <div class="slider-field"><label for="positionX">画面焦点 · 左右</label><output for="positionX" id="positionX-value">65%</output><input id="positionX" type="range" min="0" max="100" step="1" value="65"></div>
+            <div class="slider-field"><label for="positionY">画面焦点 · 上下</label><output for="positionY" id="positionY-value">50%</output><input id="positionY" type="range" min="0" max="100" step="1" value="50"></div>
+            <div class="color-field"><label for="accent">强调色</label><div><input id="accent" type="color" value="#76d9ff"><output for="accent" id="accent-value">#76D9FF</output></div></div>
+            <label class="check-row" for="motion"><span><strong>动态效果</strong><small>背景呼吸、蓝光与代码雨、视频和 GIF 动画</small></span><input id="motion" type="checkbox" checked></label>
+            <label class="check-row" for="portraitCycle"><span><strong>人物画面切换</strong><small>线框蓝光专用 · 线框与人物缓慢叠化，需开启动态效果</small></span><input id="portraitCycle" type="checkbox"></label>
+            <label class="check-row" for="scanlines"><span><strong>细微扫描纹理</strong><small>在背景上增加柔和的科技感</small></span><input id="scanlines" type="checkbox"></label>
+          </section>
+          <div class="save-footer"><p id="save-status" role="status" aria-live="polite">正在读取设置…</p><button id="reset-settings" type="button" class="text-button">恢复默认 · 保留素材</button></div>
+        </div>
+      </div>
+    </main>
+    <footer class="page-footer"><span>夜航 · 给日常一点不同</span><span>外观扩展 / 本机运行</span></footer>
+  </div>
+</body>
+</html>

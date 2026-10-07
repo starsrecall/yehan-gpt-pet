@@ -1,0 +1,107 @@
+<!doctype html>
+<!--
+  来源派生回归夹具，并非当前实机 DOM 的复制。
+  公开主题资料提供语义外壳 .app-shell-left-panel / #stage-slideover-sidebar、
+  .composer-surface-chrome，以及新颜色变量 --color-surface 等；本夹具把这些
+  线索组合为能复现多层灰底的页面。CSS Modules 名仅模拟，不据此编写适配规则。
+  参考资料（2026-10-07读取）：
+  https://gist.github.com/alexchexes/d2ff0b9137aa3ac9de8b0448138125ce （脚本2026-09-26）
+  https://github.com/yanhuuo/Codex-Xuanling-Theme/blob/e6bc7e8bb600017fa306f6ce6bf97e0969184c76/windows/engine/theme-base.css
+  https://raw.githubusercontent.com/dboyza/GPTskins/master/content/content.js （@layer utilities 原理）
+-->
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>夜航 · Work 灰底回归夹具</title>
+  <style>
+    :root { --color-surface:#30343f; --color-surface-secondary:#3a3f4b; --color-background-panel:#444a56; --color-text-primary:#edf0f5; --color-text-secondary:#adb2bd; --color-accent:#86cbd7; }
+    .dark,[data-theme="dark"] { --color-surface:#30343f; --color-surface-secondary:#3a3f4b; --color-background-panel:#444a56; --color-text-primary:#edf0f5; --color-text-secondary:#adb2bd; --color-accent:#86cbd7; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-width:300px; font:15px/1.55 system-ui,sans-serif; color:var(--color-text-primary); background:#1d212a; }
+    button,a { color:inherit; font:inherit; }
+    .app-shell { min-height:100vh; display:grid; grid-template-columns:260px minmax(0,1fr); }
+    .app-shell-left-panel,#stage-slideover-sidebar { min-width:0; height:100vh; background:var(--color-surface); }
+    .Sidebar_inner__fixture { height:calc(100% - 84px); padding:24px 14px; overflow:auto; background:var(--color-surface); }
+    .sidebar-footer { height:84px; padding:17px 20px; border-top:1px solid #626c7c44; background:var(--color-surface); }
+    .brand { font-size:20px; font-weight:600; padding:0 8px 24px; }
+    .sidebar-nav { display:grid; gap:8px; }
+    .sidebar-nav a { text-decoration:none; display:block; padding:10px 13px; border-radius:10px; }
+    .sidebar-nav a:hover,.sidebar-nav a[aria-current="page"] { background:var(--color-surface-secondary); }
+    .sidebar-nav h2 { margin:27px 12px 8px; font-size:13px; font-weight:400; color:var(--color-text-secondary); }
+    main { min-width:0; background:transparent; }
+    .work-topbar { display:flex; align-items:center; justify-content:space-between; height:86px; padding:0 30px; }
+    .work-switcher { padding:8px 35px; background:#253047aa; border-radius:35px; }
+    .fixture-note { max-width:350px; padding:5px 10px; font-size:11px; border:1px solid #9fb1c555; border-radius:10px; color:#c8d3e4; }
+    .work-center { max-width:1010px; margin:135px auto 0; padding:0 36px; }
+    h1 { text-align:center; margin:0 0 52px; font-size:34px; font-weight:550; }
+    .composer-surface-chrome { border-radius:28px; overflow:hidden; background:var(--color-background-panel); }
+    form[data-type="unified-composer"] { margin:0; padding:22px; background:var(--color-background-panel); }
+    .Composer_content__fixture { background:var(--color-background-panel); }
+    .ProseMirror { min-height:75px; outline:none; color:var(--color-text-primary); }
+    .ProseMirror:empty:before { content:attr(data-placeholder); color:var(--color-text-secondary); }
+    .composer-toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .composer-toolbar button { border:0; cursor:pointer; }
+    #work-attach { border-radius:50%; background:transparent; font-size:25px; }
+    #work-send { width:46px; height:46px; border-radius:50%; background:var(--color-accent); color:#0a2029; font-size:22px; }
+    .composer-surface-chrome footer { display:flex; justify-content:space-between; gap:16px; padding:14px 24px; background:var(--color-surface-secondary); color:var(--color-text-secondary); border-top:1px solid #99999912; }
+    .protection-zone { display:none; }
+    .protection-zone.show { display:block; position:fixed; left:280px; top:15px; z-index:40; }
+    .protected-box { padding:4px; margin:3px; background:var(--color-surface); }
+    .protected-inner { background:var(--color-background-panel); padding:3px; }
+    .sidebar-protection { display:none; }
+    .test-message { margin:22px 0; color:#d1e4f4; }
+    /* 原生实色工具层可使用 !important；层叠规则使不分层的覆盖未必占优。 */
+    @layer utilities {
+      .app-shell-left-panel,#stage-slideover-sidebar { background-color:var(--color-surface) !important; }
+      .Sidebar_inner__fixture,.sidebar-footer { background-color:var(--color-surface) !important; }
+      .composer-surface-chrome,form[data-type="unified-composer"],.Composer_content__fixture { background-color:var(--color-background-panel) !important; }
+      .composer-surface-chrome footer { background-color:var(--color-surface-secondary) !important; }
+    }
+    @media(max-width:800px) { .app-shell {grid-template-columns:170px minmax(0,1fr);} .Sidebar_inner__fixture {padding:18px 8px;} .work-center {margin-top:90px; padding:0 16px;} h1 {font-size:26px;} .work-topbar {padding:0 16px;} .fixture-note {max-width:175px;} .composer-surface-chrome footer {flex-wrap:wrap;padding:12px 15px;} }
+  </style>
+</head>
+<body>
+  <div class="app-shell" id="work-shell">
+    <aside class="app-shell-left-panel" id="fixture-sidebar">
+      <div class="Sidebar_inner__fixture" id="sidebar-inner">
+        <div class="brand">ChatGPT ⌄</div>
+        <nav class="sidebar-nav">
+          <a id="selected-item" href="#new" aria-current="page">✎　新聊天</a>
+          <a id="hover-item" href="#schedule">◷　定时任务</a>
+          <a href="#library">▤　资料库</a><a href="#plugin">◈　插件</a>
+          <h2>置顶</h2><a href="#project">▱　奇奇怪怪的东西</a><a href="#art">♡　图片</a>
+          <h2>项目</h2><a href="#night">夜航 · 网页皮肤</a><a href="#idea">一个自己的小宇宙</a>
+        </nav>
+        <div class="sidebar-protection" id="sidebar-protected">
+          <div role="dialog" class="protected-box" data-theme="dark"><div class="protected-inner">侧栏弹窗</div></div>
+          <div role="alertdialog" class="protected-box" data-theme="dark"><div class="protected-inner">侧栏提醒</div></div>
+          <div role="menu" class="protected-box" data-theme="dark"><div class="protected-inner">侧栏菜单</div></div>
+          <div role="listbox" class="protected-box" data-theme="dark"><div class="protected-inner">侧栏列表</div></div>
+        </div>
+      </div>
+      <div class="sidebar-footer" id="sidebar-footer">◉　示例用户<br><small>　　Plus</small></div>
+    </aside>
+    <main>
+      <header class="work-topbar"><span class="work-switcher">聊天　　工作</span><span class="fixture-note">Work 来源派生测试夹具<br>非实机 DOM / 无真实会话</span></header>
+      <section class="work-center">
+        <h1>我们要做什么？</h1>
+        <div class="composer-surface-chrome" id="fixture-composer">
+          <form data-type="unified-composer" id="work-form">
+            <div class="Composer_content__fixture" id="composer-inner"><div class="ProseMirror" id="work-editor" contenteditable="true" role="textbox" aria-label="输入消息" data-placeholder="使用 ChatGPT Work"></div></div>
+            <div class="composer-toolbar"><button type="button" id="work-attach">＋</button><span>GPT · 轻度　⌄</span><button type="button" id="work-send" aria-label="发送">↑</button></div>
+          </form>
+          <footer id="composer-footer"><span>▱　选择项目　　▥　文件　　◈　插件</span><span>打开桌面应用</span></footer>
+        </div>
+        <div class="test-message" id="sent-message"></div>
+        <div class="protection-zone" id="main-protected">
+          <div role="dialog" class="protected-box" data-theme="dark"><div class="protected-inner">主内容弹窗</div></div>
+          <div role="alertdialog" class="protected-box" data-theme="dark"><div class="protected-inner">主内容提醒</div></div>
+          <div role="menu" class="protected-box" data-theme="dark"><div class="protected-inner">主内容菜单</div></div>
+          <div role="listbox" class="protected-box" data-theme="dark"><div class="protected-inner">主内容列表</div></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

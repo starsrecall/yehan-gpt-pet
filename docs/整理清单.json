@@ -1,0 +1,307 @@
+{
+  "version": "0.1.5",
+  "preparedAt": "2026-10-07T19:15:42.4696190+08:00",
+  "fileCount": 60,
+  "files": [
+    {
+      "file": ".gitignore",
+      "sizeBytes": 475,
+      "sha256": "7A9E9CFBCC258E19404B86C3A8EAD655D2A40EEC0F397BABA2F1A621711393EE"
+    },
+    {
+      "file": "CHANGELOG.md",
+      "sizeBytes": 1224,
+      "sha256": "927F70411F1758FC87C63333170A0AAD630E81EE8273FA8D7F20F751C850D48C"
+    },
+    {
+      "file": "package.json",
+      "sizeBytes": 790,
+      "sha256": "8F6477B1ED3FD3085C962F213FE9606F159DF598412087072CEE56F3CBAEAFC8"
+    },
+    {
+      "file": "README.md",
+      "sizeBytes": 2627,
+      "sha256": "1D155269240FBFAAFA996BDDA3D68BA6848B8DC6BDB6BF9990DB6EC26496F780"
+    },
+    {
+      "file": "TESTING.md",
+      "sizeBytes": 2969,
+      "sha256": "A56E2E8A9D5A1E6C84F55559BE0D644AA24B0DED7B9D9F5C3BBEC6ED49B02921"
+    },
+    {
+      "file": "chatgpt-nebula-extension/backdrop.css",
+      "sizeBytes": 5112,
+      "sha256": "EE55EA7D9849C9634A0F24D3093EE57EC3C9E4DA7A37792B0633CBCD487EC62A"
+    },
+    {
+      "file": "chatgpt-nebula-extension/backdrop.html",
+      "sizeBytes": 1667,
+      "sha256": "04799F71DF526A2FB5D211B0C6DEFFEE2B9654D2143E5226FAC39B169653BD83"
+    },
+    {
+      "file": "chatgpt-nebula-extension/backdrop.js",
+      "sizeBytes": 11371,
+      "sha256": "1CA6F8DB0E12974385481E4EE43AC2BF8297BB026971EA2235980C7DB881873E"
+    },
+    {
+      "file": "chatgpt-nebula-extension/content.js",
+      "sizeBytes": 5533,
+      "sha256": "4C4CE7223A0F02F21CD537C1F0AFD11237298FB4506CB2004D82FC77B3A36187"
+    },
+    {
+      "file": "chatgpt-nebula-extension/manifest.json",
+      "sizeBytes": 1196,
+      "sha256": "46AAE2DD0ACBDC3DF6CCF38301F7731FA833640AE21BA5783565380C70457A7E"
+    },
+    {
+      "file": "chatgpt-nebula-extension/options.css",
+      "sizeBytes": 12488,
+      "sha256": "0064E488CE615924059AAB05C4C8ECA0482E3375FE73034FF2153022195C17DD"
+    },
+    {
+      "file": "chatgpt-nebula-extension/options.html",
+      "sizeBytes": 9249,
+      "sha256": "6B77DD277CC7A033C14E2B3AF25F081DAC4EF795262DDA11901E8570BAFF234C"
+    },
+    {
+      "file": "chatgpt-nebula-extension/options.js",
+      "sizeBytes": 13395,
+      "sha256": "84FF2C57DEFAE02963AAEA38138B629DDBF5B76DF318212B7780A6ABC9E6E2FF"
+    },
+    {
+      "file": "chatgpt-nebula-extension/popup.css",
+      "sizeBytes": 3371,
+      "sha256": "DDEC3C412A22A123787942C16B40186876F08F0F7E744D58C829B233BFD2C980"
+    },
+    {
+      "file": "chatgpt-nebula-extension/popup.html",
+      "sizeBytes": 1703,
+      "sha256": "B16E1831F2A5A6CF0BD8ADB87AE9BDE0C93B87FADA736D639FA017C49C92E38D"
+    },
+    {
+      "file": "chatgpt-nebula-extension/popup.js",
+      "sizeBytes": 2648,
+      "sha256": "152BCEECC436815BE1498BAD55FBE34B5F264AE05166B33383F8AF40705DAD29"
+    },
+    {
+      "file": "chatgpt-nebula-extension/README.md",
+      "sizeBytes": 9025,
+      "sha256": "CC32D13FB6E031D6C6998CE29E358807F9DDAE51E8D27A41174B84602BA1CD2C"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/character-wallpaper.png",
+      "sizeBytes": 2275382,
+      "sha256": "A4C2EA8149C3D4169F48415CCFCAFDF4AE40F3EF0E36DCF74341444B60B0B057"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/icon-128.png",
+      "sizeBytes": 7849,
+      "sha256": "98780922B289C56BFDAAA74B02A6546DBC55B246A595B42DA70F5AA15DBB7864"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/icon-16.png",
+      "sizeBytes": 808,
+      "sha256": "F6FC7D87E44C445FDD14E8621D7C6F0DEFD4DF4169BF3F65A9EC5926848D0277"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/icon-48.png",
+      "sizeBytes": 2741,
+      "sha256": "04748348D49C1DB7092C18E24C21F7FB0AD42540B51EAFA77AA4FA64684C3E13"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/wireframe-color-v1.png",
+      "sizeBytes": 2081686,
+      "sha256": "FB565BF3D1A91459EF04BD00FFD492F21FDEA45EAD48B5D7B468D0F75A188FF4"
+    },
+    {
+      "file": "chatgpt-nebula-extension/assets/wireframe-wallpaper.png",
+      "sizeBytes": 2498402,
+      "sha256": "00510FB8DEC118E6F1C3791DECD0E65D1390FA8D54C0DB070986332C9E09ADED"
+    },
+    {
+      "file": "chatgpt-nebula-extension/shared/media-store.js",
+      "sizeBytes": 8445,
+      "sha256": "C755D13A8CA37807304098A856B386AEC70AD1DFD52176D3AC42AECEB983600E"
+    },
+    {
+      "file": "chatgpt-nebula-extension/shared/settings.js",
+      "sizeBytes": 3862,
+      "sha256": "9A57D1F59634532BB6712E3F7E5BD2FE658371C659A3FD3EA941D5A443684831"
+    },
+    {
+      "file": "chatgpt-nebula-extension/styles/site.css",
+      "sizeBytes": 22254,
+      "sha256": "1C7696D2D7D80CE8EA6BC1515D77F3529BFD9BE0CE35E52195C78EEB1AF74974"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/browser-smoke.cjs",
+      "sizeBytes": 34203,
+      "sha256": "593CCBFE8D47464AD12763C81F5018FA8506C5884EC0C06B2F236E3C92D58CDE"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/composer-visual-smoke.cjs",
+      "sizeBytes": 18225,
+      "sha256": "DBF3924A1BEB56005AAE334F3063B78BD96E331ACE0832F1F6D16EFF8463BD17"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/dynamic-wireframe-results-0.1.5.json",
+      "sizeBytes": 37581,
+      "sha256": "61CBE6248A0DD425351067E62A47F77F8E056DD7739A68DD0A61DD6EFE897E10"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/dynamic-wireframe-smoke.cjs",
+      "sizeBytes": 35118,
+      "sha256": "2AA3EADC2BEDCFB9DAEE68B41C81F399D71957900C224B1795F9CBCB2DDA0D34"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/layout-style-smoke.cjs",
+      "sizeBytes": 20916,
+      "sha256": "D1AB83FDA469D88F185EBB0FC239DB117CD2047A920ED86D9AD2525BAD264EA3"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/release-0.1.5.json",
+      "sizeBytes": 5024,
+      "sha256": "98D380CFFE0545F76B1B17F64F26AE572E30098EE26AB949F8659E2353258FE0"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/results-0.1.5.json",
+      "sizeBytes": 8210,
+      "sha256": "332A5EE2BCACC14E1C9F05AC63FA9107EE006258C3BF7F6546D6667F6066942C"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/syntax-results-0.1.5.json",
+      "sizeBytes": 1219,
+      "sha256": "6DEFB618671146AF5CDF42905697DBE599041705309781E0D33E502106821D3B"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/wireframe-preset-smoke.cjs",
+      "sizeBytes": 14039,
+      "sha256": "C2076E98A90831B0BF52F9BCD8A3F060656F8F68909EDE34E3096918E250882D"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/work-results-0.1.5.json",
+      "sizeBytes": 50080,
+      "sha256": "50EEF9A81704591D29FEC97CCBE25083A7832CB75C4F73D2E132DE13BF65BCD8"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/work-style-smoke.cjs",
+      "sizeBytes": 22706,
+      "sha256": "4565A7237F806E3F3FE35F83DAC75EF5A2DA8C2C4F6265D728986DD7016B4D86"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/fixtures/chatgpt-composer.html",
+      "sizeBytes": 6785,
+      "sha256": "9631F2D9F9DB745BACFA5AAE36A43E65949FFDD65017890D7E9AF0CC37B3EC2E"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/fixtures/chatgpt-layout.html",
+      "sizeBytes": 7145,
+      "sha256": "4838FEE17E70C080D2D2BC0478A7FD3CD01512029CD021C5164AA66A1EF03764"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/fixtures/chatgpt-wireframe.html",
+      "sizeBytes": 5691,
+      "sha256": "2C53EFDE2D582921EB7AD96D719C5EAA1BCD1B8E8E96B749686AB9A23E2642CB"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/fixtures/chatgpt-work.html",
+      "sizeBytes": 8552,
+      "sha256": "97319F0CAB6A33175CA28F96C9E588A7AE81CB18CAADCA1896DA9BEFC942CC9A"
+    },
+    {
+      "file": "chatgpt-nebula-extension/tests/fixtures/chatgpt.html",
+      "sizeBytes": 4707,
+      "sha256": "47861D6034FD8A97F4B84B56E1FD9AE35D2A354F56FD43DCC4EF0F99A489217F"
+    },
+    {
+      "file": "docs/壁纸素材生成记录.md",
+      "sizeBytes": 2016,
+      "sha256": "14EA0D8D90E8F9E48B62BB518E1CCE2C191817CFA4EAAE48C885A7A6C4555682"
+    },
+    {
+      "file": "docs/人物双态背景说明-0.1.5.md",
+      "sizeBytes": 4486,
+      "sha256": "2B28537C216FC0EDD8822213CFB1FE4ABA58CD2AB18764B8B7109292BD7E95EC"
+    },
+    {
+      "file": "docs/人物双态素材生成记录-0.1.4.md",
+      "sizeBytes": 3994,
+      "sha256": "F635800104941FBE9546BE9D64ACBD3D033D7496BC52B723837C1E182C75994B"
+    },
+    {
+      "file": "docs/上传材料说明.md",
+      "sizeBytes": 1812,
+      "sha256": "C128027AB43EAF352FA29FF94C9C2E921E22A80CF6702E43F8D6AB70491FB32E"
+    },
+    {
+      "file": "docs/维护与验证说明.md",
+      "sizeBytes": 14866,
+      "sha256": "4B261C719011E165CA758662B585BBE1A0AB816FD90E85AFFA4911670C7BC066"
+    },
+    {
+      "file": "docs/线框蓝光素材生成记录.md",
+      "sizeBytes": 3195,
+      "sha256": "84994A118D5980570C27D2686D255ED4CCB1BBE965934B50274BBD462D01CECD"
+    },
+    {
+      "file": "docs/验证记录-0.1.5.md",
+      "sizeBytes": 4232,
+      "sha256": "5FCA2C6653A3FC35C879CB69947EF7AC37D1A8A0583A50FFF040C61E420D792C"
+    },
+    {
+      "file": "docs/ChatGPT网页皮肤插件规划书.md",
+      "sizeBytes": 14534,
+      "sha256": "F3FB46C5C46F1E64452289B35476970FD0A8CB5AE18E47A59B9B800896E218E6"
+    },
+    {
+      "file": "docs/assets/人物双态-0.1.5-人物相.png",
+      "sizeBytes": 1989666,
+      "sha256": "819E8DAA7A0882BC25919FC31B128A7879254FC7709D67D7EBF7B3D76C781FE8"
+    },
+    {
+      "file": "docs/assets/人物双态-0.1.5-线框相.png",
+      "sizeBytes": 2401740,
+      "sha256": "CD377AFDEA3B5B8A29C657CE90C3DC72D806CD7131B27A7ECE53E7F5E59E9A3D"
+    },
+    {
+      "file": "docs/assets/线框蓝光-0.1.3-夹具实渲染.png",
+      "sizeBytes": 2395658,
+      "sha256": "B124BFA600AF87754ABD521FE5447A7E7D6B9E8AA74EFF6EFAC788628FE422FC"
+    },
+    {
+      "file": "docs/assets/夜航-0.1.5-设置页.png",
+      "sizeBytes": 861458,
+      "sha256": "708A3AAA8EC59824F986623E59306C63AB166C6539BC420974C899F2B370BA38"
+    },
+    {
+      "file": "docs/assets/夜航-成品效果图-v1.png",
+      "sizeBytes": 1991880,
+      "sha256": "E8FF58E36443F66CFCC45DAF264940FDE8828447F6F258AD9DF27D68B06E2767"
+    },
+    {
+      "file": "releases/夜航-Chrome-0.1.4.zip",
+      "sizeBytes": 6801700,
+      "sha256": "4F9C64B87EDA3E1DE57F81FB8B3378B4FCCE09694605847748EA3C680C3F01CD"
+    },
+    {
+      "file": "releases/夜航-Chrome-0.1.5.zip",
+      "sizeBytes": 6801722,
+      "sha256": "CB762D7D5AB20B8309DE5E79950A1489AA085F51C317EB8289305DFD712DC34B"
+    },
+    {
+      "file": "tools/build-release.ps1",
+      "sizeBytes": 2549,
+      "sha256": "FD22D25277040F1039CC91AA87C3442D8DE2D5F4C9A838C38943B3B0EF8C7025"
+    },
+    {
+      "file": "tools/prepare-github.ps1",
+      "sizeBytes": 8283,
+      "sha256": "A618F1537D2B9DF2BBB124BD31100FEDF186B48C94F60F2C9EC4A933F5118DA3"
+    },
+    {
+      "file": "tools/verify-release.ps1",
+      "sizeBytes": 5045,
+      "sha256": "C28961D73B27118ED5FEF97DE814FBD6D437B72A75FC2FAC035002A444B68E67"
+    }
+  ]
+}

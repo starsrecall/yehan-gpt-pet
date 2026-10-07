@@ -1,0 +1,274 @@
+{
+  "publicationNote": "分享副本仅归一化本机路径；断言、数值、版本、时间与运行文件哈希保留。原始运行工件留在本机。",
+  "startedAt": "2026-10-07T11:08:26.548Z",
+  "environment": "已安装 Chrome / 独立临时 profile / 本地 route.fulfill 夹具",
+  "scope": "验证扩展实际加载和可控夹具；未验证真实账号 ChatGPT 页面兼容性。",
+  "browserVersion": "154.0.8037.98",
+  "extensionId": "bhbbadkbbbamhokpjdioblgmffgegpfd",
+  "profile": "<project-root>\\.test-profiles\\nebula-chrome-k9jz6Y",
+  "checks": [
+    {
+      "name": "Chrome 调试接口加载真实 MV3 扩展",
+      "passed": true,
+      "detail": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd"
+    },
+    {
+      "name": "站点 CSP frame-src none 下背景、脚本、样式正常加载",
+      "passed": true,
+      "durationMs": 244,
+      "detail": {
+        "origin": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd",
+        "preset": "aurora",
+        "settings": {
+          "enabled": true,
+          "mode": "soft",
+          "preset": "aurora",
+          "accent": "#76d9ff",
+          "dim": 35,
+          "panelOpacity": 82,
+          "blur": 8,
+          "positionX": 65,
+          "positionY": 50,
+          "motion": true,
+          "portraitCycle": false,
+          "scanlines": false,
+          "backgroundType": "preset",
+          "assetVersion": 0
+        },
+        "hasChromeStorage": true,
+        "background": "rgb(7, 16, 30)"
+      }
+    },
+    {
+      "name": "原页面编辑器、发送按钮和链接可操作",
+      "passed": true,
+      "durationMs": 168,
+      "detail": {
+        "iframePointerEvents": "none"
+      }
+    },
+    {
+      "name": "设置页开关实时应用，关闭无遗留属性和变量",
+      "passed": true,
+      "durationMs": 2245,
+      "detail": {
+        "attrs": [],
+        "vars": []
+      }
+    },
+    {
+      "name": "页面局部重建不产生重复背景，移除背景后自动修复",
+      "passed": true,
+      "durationMs": 236,
+      "detail": "局部 thread 替换、背景节点移除、整个 body 替换均恢复一份背景。"
+    },
+    {
+      "name": "非 ChatGPT 地址没有注入",
+      "passed": true,
+      "durationMs": 139,
+      "detail": ""
+    },
+    {
+      "name": "滑块与配置保存，经页面重新加载仍有效",
+      "passed": true,
+      "durationMs": 458,
+      "detail": {
+        "mode": "glass",
+        "blur": "12px",
+        "accent": "#77ddbb"
+      }
+    },
+    {
+      "name": "两个扩展页面并发修改不同设置不互相覆盖",
+      "passed": true,
+      "durationMs": 200,
+      "detail": "5 次并发修改 dim 与 blur，全部保留两页各自写入。"
+    },
+    {
+      "name": "本机 PNG 导入、静态封面及背景 iframe 跨源读取",
+      "passed": true,
+      "durationMs": 107,
+      "detail": {
+        "name": "nebula-test.png",
+        "mimeType": "image/png",
+        "size": 401,
+        "posterSize": 668,
+        "updatedAt": 1791371312039
+      }
+    },
+    {
+      "name": "损坏素材导入失败，旧素材和配置仍被保留",
+      "passed": true,
+      "durationMs": 31,
+      "detail": {
+        "preserved": "nebula-test.png",
+        "message": "这个文件无法正常显示，请换一份图片或视频。原素材仍被保留。"
+      }
+    },
+    {
+      "name": "GIF 导入生成封面，关闭动态与 reduced-motion 均解除 GIF 地址",
+      "passed": true,
+      "durationMs": 1223,
+      "detail": {
+        "name": "nebula-test.gif",
+        "mimeType": "image/gif",
+        "size": 85,
+        "posterSize": 554,
+        "updatedAt": 1791371312155
+      }
+    },
+    {
+      "name": "本机 WebM 导入、播放、暂停和 reduced-motion",
+      "passed": true,
+      "durationMs": 2817,
+      "detail": {
+        "name": "nebula-test.webm",
+        "mimeType": "video/webm",
+        "size": 3744,
+        "posterSize": 574,
+        "updatedAt": 1791371316056
+      }
+    },
+    {
+      "name": "双设置页素材同步、旧清除确认撤销与版本冲突保护",
+      "passed": true,
+      "durationMs": 3274,
+      "detail": {
+        "staleFile": "nebula-test.webm",
+        "keptFile": "nebula-second.png",
+        "refusedCode": "NEBULA_MEDIA_CHANGED",
+        "resetKeptAsset": true
+      }
+    },
+    {
+      "name": "素材存储不可用时，预设与基础设置仍可操作",
+      "passed": true,
+      "durationMs": 227,
+      "detail": "本机素材暂时不可用，仍可使用预设与基本外观设置。本地素材空间暂时无法打开，请重试。"
+    },
+    {
+      "name": "背景 pagehide/pageshow 恢复事件重新加载素材",
+      "passed": true,
+      "durationMs": 63,
+      "detail": "合成持久化页面恢复事件验证生命周期；未模拟真实浏览器 bfcache 导航。"
+    },
+    {
+      "name": "保留宿主同名属性与 CSS 内联值，停用时恢复原值",
+      "passed": true,
+      "durationMs": 108,
+      "detail": ""
+    },
+    {
+      "name": "内置角色壁纸加载与真实扩展截图",
+      "passed": true,
+      "durationMs": 5295,
+      "detail": {
+        "webpagePath": "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-网页.png",
+        "settingsPath": "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-设置.png"
+      }
+    },
+    {
+      "name": "扩展弹窗与窄屏设置布局",
+      "passed": true,
+      "durationMs": 2439,
+      "detail": {
+        "popupPath": "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-弹窗.png",
+        "narrowPath": "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-设置-窄屏.png",
+        "dimensions": {
+          "width": 390,
+          "scrollWidth": 390
+        }
+      }
+    },
+    {
+      "name": "测试页面没有发起主动远程请求",
+      "passed": true,
+      "durationMs": 0,
+      "detail": "仅 chatgpt.com 与 example.com 本地夹具请求；其他网络请求全部记录并拦截。"
+    }
+  ],
+  "unexpectedRemoteRequests": [],
+  "errors": [],
+  "console": [],
+  "requestsFailed": [
+    {
+      "url": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/backdrop.html",
+      "error": "net::ERR_ABORTED"
+    }
+  ],
+  "screenshots": [
+    "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-网页.png",
+    "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-设置.png",
+    "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-弹窗.png",
+    "<project-root>\\docs\\assets\\regression-0.1.5\\实现验证-设置-窄屏.png"
+  ],
+  "settingsBeforeReload": {
+    "enabled": true,
+    "mode": "glass",
+    "preset": "aurora",
+    "accent": "#77ddbb",
+    "dim": 44,
+    "panelOpacity": 82,
+    "blur": 12,
+    "positionX": 65,
+    "positionY": 50,
+    "motion": true,
+    "portraitCycle": false,
+    "scanlines": false,
+    "backgroundType": "preset",
+    "assetVersion": 0
+  },
+  "settingsAfterReload": {
+    "enabled": true,
+    "mode": "glass",
+    "preset": "aurora",
+    "accent": "#77ddbb",
+    "dim": 44,
+    "panelOpacity": 82,
+    "blur": 12,
+    "positionX": 65,
+    "positionY": 50,
+    "motion": true,
+    "portraitCycle": false,
+    "scanlines": false,
+    "backgroundType": "preset",
+    "assetVersion": 0
+  },
+  "recordedVideo": {
+    "size": 3744,
+    "type": "video/webm;codecs=vp8",
+    "documentHidden": false,
+    "framesRequested": 15,
+    "chunks": 5,
+    "decode": {
+      "width": 96,
+      "height": 64,
+      "readyState": 4,
+      "duration": null
+    }
+  },
+  "videoOptionsDiagnostic": {
+    "saveStatus": "已自动保存到本机",
+    "mediaStatus": "nebula-test.webm · 0.0 MiB · 正在使用",
+    "config": {
+      "enabled": true,
+      "mode": "glass",
+      "preset": "aurora",
+      "accent": "#77ddbb",
+      "dim": 45,
+      "panelOpacity": 82,
+      "blur": 17,
+      "positionX": 65,
+      "positionY": 50,
+      "motion": true,
+      "portraitCycle": false,
+      "scanlines": false,
+      "backgroundType": "custom",
+      "assetVersion": 1791371316056
+    },
+    "media": "nebula-test.webm",
+    "mediaDisabled": false
+  },
+  "finishedAt": "2026-10-07T11:08:47.872Z",
+  "passed": true
+}

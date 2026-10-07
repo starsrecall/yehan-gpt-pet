@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- 弹窗提供常用开关；详细设置在扩展自己的 options 页面处理。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夜航</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="shared/settings.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><div class="brand-mark" aria-hidden="true">◒</div><div><h1>夜航</h1><p>让对话有自己的风景</p></div><span class="badge">LOCAL</span></header>
+    <div class="hero-strip" aria-hidden="true"><span>NEBULA</span><i></i><small>A LITTLE SPACE OF YOUR OWN</small></div>
+    <label class="toggle-row" for="enabled"><span><strong>启用皮肤</strong><small>仅对 ChatGPT 网页生效</small></span><span class="switch"><input id="enabled" type="checkbox" checked><span class="track" aria-hidden="true"></span></span></label>
+    <div class="mode-field"><label for="mode">面板风格</label><select id="mode"><option value="soft">轻量 · 清晰稳定</option><option value="glass">通透 · 玻璃效果</option></select></div>
+    <label class="toggle-row motion-row" for="motion"><span><strong>动态效果</strong><small>遵循系统的减少动态偏好</small></span><span class="switch"><input id="motion" type="checkbox" checked><span class="track" aria-hidden="true"></span></span></label>
+    <p id="save-status" role="status" aria-live="polite">正在读取设置…</p>
+    <button id="open-options" type="button">壁纸与更多设置 <span aria-hidden="true">↗</span></button>
+    <footer>本机保存 · 素材不上传</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1840 @@
+{
+  "publicationNote": "分享副本仅归一化本机路径；断言、数值、版本、时间与运行文件哈希保留。原始运行工件留在本机。",
+  "startedAt": "2026-10-07T11:08:26.550Z",
+  "environment": "真实 Chrome / 独立临时 profile / 本地 route.fulfill 来源派生夹具",
+  "scope": "验证新颜色变量、Work 语义节点及局部主题的样式规则；并非实机 DOM、真实账号页面验证。",
+  "phase": "after",
+  "sourceReferences": [
+    {
+      "url": "https://gist.github.com/alexchexes/d2ff0b9137aa3ac9de8b0448138125ce",
+      "scriptVersion": "2026-09-26",
+      "use": "现代颜色 token"
+    },
+    {
+      "url": "https://github.com/yanhuuo/Codex-Xuanling-Theme/blob/e6bc7e8bb600017fa306f6ce6bf97e0969184c76/windows/engine/theme-base.css",
+      "use": "侧栏与输入框语义类；跨产品适配经验，非 ChatGPT 实机 DOM"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/dboyza/GPTskins/master/content/content.js",
+      "use": "@layer utilities 层叠覆盖思路；未确认最新提交日期"
+    }
+  ],
+  "fixtureSha256": "97319f0cab6a33175ca28f96c9e588a7ae81cb18caadca1896da9befc942cc9a",
+  "extensionVersion": "0.1.5",
+  "stylesheetSha256": "1c7696d2d7d80ce8ea6bc1515d77f3529bfd9be0ce35e52195c78eeb1af74974",
+  "browserVersion": "154.0.8037.98",
+  "checks": [
+    {
+      "name": "来源派生夹具确实没有旧版 sidebar/composer id",
+      "passed": true,
+      "durationMs": 43,
+      "detail": "模拟新增语义结构，未沿用旧夹具适配锚点。"
+    },
+    {
+      "name": "soft / root-class / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 4,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "soft / root-class / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "soft / html-theme / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 1,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "soft / html-theme / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "soft / nested-theme / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 3,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "soft / nested-theme / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / root-class / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / root-class / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 4,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / html-theme / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 1,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / html-theme / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 1,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / nested-theme / desktop 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "glass / nested-theme / slideover 侧栏及输入框多层灰底消除",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "styles": {
+          "sidebar": {
+            "background": "rgba(8, 17, 32, 0.6)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 1000,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 916,
+            "x": 0,
+            "y": 0
+          },
+          "sidebar-footer": {
+            "background": "rgb(11, 23, 41)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 260,
+            "height": 84,
+            "x": 0,
+            "y": 916
+          },
+          "fixture-composer": {
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 217.25,
+            "x": 461,
+            "y": 325.6875
+          },
+          "work-form": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 938,
+            "height": 165,
+            "x": 461,
+            "y": 325.6875
+          },
+          "composer-inner": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 894,
+            "height": 75,
+            "x": 483,
+            "y": 347.6875
+          },
+          "composer-footer": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(189, 204, 225)",
+            "width": 938,
+            "height": 52.25,
+            "x": 461,
+            "y": 490.6875
+          },
+          "selected-item": {
+            "background": "rgb(27, 44, 69)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 79
+          },
+          "hover-item": {
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none",
+            "color": "rgb(237, 244, 255)",
+            "width": 232,
+            "height": 43.25,
+            "x": 14,
+            "y": 130.25
+          },
+          "work-send": {
+            "background": "rgb(134, 203, 215)",
+            "blur": "none",
+            "color": "rgb(10, 32, 41)",
+            "width": 46,
+            "height": 46,
+            "x": 1331,
+            "y": 422.6875
+          }
+        }
+      }
+    },
+    {
+      "name": "选择状态与悬停具有独立可读底色",
+      "passed": true,
+      "durationMs": 28,
+      "detail": {
+        "selected": {
+          "background": "rgb(27, 44, 69)",
+          "blur": "none",
+          "color": "rgb(237, 244, 255)",
+          "width": 232,
+          "height": 43.25,
+          "x": 14,
+          "y": 79
+        },
+        "hover": {
+          "background": "rgb(27, 44, 69)",
+          "blur": "none",
+          "color": "rgb(237, 244, 255)",
+          "width": 232,
+          "height": 43.25,
+          "x": 14,
+          "y": 130.25
+        }
+      }
+    },
+    {
+      "name": "嵌套局部主题的 dialog/alertdialog/menu/listbox 仍为实色",
+      "passed": true,
+      "durationMs": 1,
+      "detail": [
+        {
+          "role": "dialog",
+          "parent": "sidebar",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "alertdialog",
+          "parent": "sidebar",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "menu",
+          "parent": "sidebar",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "listbox",
+          "parent": "sidebar",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "dialog",
+          "parent": "main",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "alertdialog",
+          "parent": "main",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "menu",
+          "parent": "main",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        },
+        {
+          "role": "listbox",
+          "parent": "main",
+          "background": "rgb(20, 35, 57)",
+          "inner": "rgb(20, 35, 57)"
+        }
+      ]
+    },
+    {
+      "name": "body 的独立层叠上下文仍然有效",
+      "passed": true,
+      "durationMs": 3,
+      "detail": "原网页未分层 isolation:auto 没有压过壁纸的 body 负层级上下文。"
+    },
+    {
+      "name": "旧 composer id 外壳 + Work 内层 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 5,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "outer",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          },
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          },
+          {
+            "name": "form",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "旧 composer test-id 外壳 + Work 内层 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 2,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "outer",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          },
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          },
+          {
+            "name": "form",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "两种 recognized surface 真嵌套 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 4,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "outer",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          },
+          {
+            "name": "surface",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          },
+          {
+            "name": "form",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "普通聊天 group/composer 外壳 + primary 内层 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 4,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "outer",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          },
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "显式 Work 表面兼有 bg-token-main-surface-primary 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 3,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          },
+          {
+            "name": "form",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fallback composer id 兼有 bg-token-main-surface-primary 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 3,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "显式 Work 表面兼有 bg-token-bg-primary 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 3,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          },
+          {
+            "name": "form",
+            "background": "rgba(0, 0, 0, 0)",
+            "blur": "none"
+          }
+        ]
+      }
+    },
+    {
+      "name": "fallback composer id 兼有 bg-token-bg-primary 只绘制一层输入玻璃",
+      "passed": true,
+      "durationMs": 3,
+      "detail": {
+        "combinedAlpha": 0.65,
+        "nodes": [
+          {
+            "name": "surface",
+            "background": "rgba(11, 23, 41, 0.65)",
+            "blur": "blur(14px)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "侧栏与输入内层自行挂局部主题仍无叠色",
+      "passed": true,
+      "durationMs": 6,
+      "detail": {
+        "sideAlpha": 0.6,
+        "composerAlpha": 0.65,
+        "sidebarInner": {
+          "background": "rgba(0, 0, 0, 0)",
+          "blur": "none",
+          "color": "rgb(237, 244, 255)",
+          "width": 260,
+          "height": 916,
+          "x": 0,
+          "y": 0
+        },
+        "composerInner": {
+          "background": "rgba(0, 0, 0, 0)",
+          "blur": "none",
+          "color": "rgb(237, 244, 255)",
+          "width": 894,
+          "height": 75,
+          "x": 483,
+          "y": 347.6875
+        }
+      }
+    },
+    {
+      "name": "form[role=dialog] 自身和输入表面不被清底",
+      "passed": true,
+      "durationMs": 2,
+      "detail": [
+        {
+          "name": "form",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "surface",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "form[role=alertdialog] 自身和输入表面不被清底",
+      "passed": true,
+      "durationMs": 3,
+      "detail": [
+        {
+          "name": "form",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "surface",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "form[role=menu] 自身和输入表面不被清底",
+      "passed": true,
+      "durationMs": 2,
+      "detail": [
+        {
+          "name": "form",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "surface",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "form[role=listbox] 自身和输入表面不被清底",
+      "passed": true,
+      "durationMs": 3,
+      "detail": [
+        {
+          "name": "form",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "surface",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "Radix wrapper 内 primary 工具类 保留实色",
+      "passed": true,
+      "durationMs": 2,
+      "detail": [
+        {
+          "name": "wrapper",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "primary",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "nested",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "Radix wrapper 自身兼有 composer/form 语义 保留实色",
+      "passed": true,
+      "durationMs": 4,
+      "detail": [
+        {
+          "name": "wrapper",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "nested",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "main[role=dialog] 与自身 header 保留实色",
+      "passed": true,
+      "durationMs": 4,
+      "detail": [
+        {
+          "name": "main",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "header",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "dialog 中 main/header 与 header 自身弹层 保留实色",
+      "passed": true,
+      "durationMs": 3,
+      "detail": [
+        {
+          "name": "dialog",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "main",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "header",
+          "background": "rgb(68, 74, 86)",
+          "blur": "none"
+        },
+        {
+          "name": "inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "menu-header",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        },
+        {
+          "name": "menu-inner",
+          "background": "rgb(20, 35, 57)",
+          "blur": "none"
+        }
+      ]
+    },
+    {
+      "name": "无旧编辑器 id 的 ProseMirror 与发送按钮仍可操作",
+      "passed": true,
+      "durationMs": 27,
+      "detail": "原编辑器内容、原按钮事件正常工作。"
+    },
+    {
+      "name": "窄屏样式没有更改网页原生布局尺寸",
+      "passed": true,
+      "durationMs": 106,
+      "detail": {
+        "width": 760,
+        "sidebarWidth": 170,
+        "composerWidth": 558
+      }
+    },
+    {
+      "name": "关闭插件恢复所有原始灰底及清理注入",
+      "passed": true,
+      "durationMs": 18,
+      "detail": {
+        "sidebar": "rgb(48, 52, 63)",
+        "composer": "rgb(68, 74, 86)"
+      }
+    },
+    {
+      "name": "未产生脚本错误或额外远程请求",
+      "passed": true,
+      "durationMs": 1,
+      "detail": "测试账户网络与外部资源均未参与。"
+    }
+  ],
+  "remoteRequests": [],
+  "errors": [],
+  "profile": "<project-root>\\.test-profiles\\nebula-work-av8wx2",
+  "extensionId": "bhbbadkbbbamhokpjdioblgmffgegpfd",
+  "original": {
+    "sidebar": {
+      "background": "rgb(48, 52, 63)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 260,
+      "height": 1000,
+      "x": 0,
+      "y": 0
+    },
+    "sidebar-inner": {
+      "background": "rgb(48, 52, 63)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 260,
+      "height": 916,
+      "x": 0,
+      "y": 0
+    },
+    "sidebar-footer": {
+      "background": "rgb(48, 52, 63)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 260,
+      "height": 84,
+      "x": 0,
+      "y": 916
+    },
+    "fixture-composer": {
+      "background": "rgb(68, 74, 86)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 938,
+      "height": 217.25,
+      "x": 461,
+      "y": 325.6875
+    },
+    "work-form": {
+      "background": "rgb(68, 74, 86)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 938,
+      "height": 165,
+      "x": 461,
+      "y": 325.6875
+    },
+    "composer-inner": {
+      "background": "rgb(68, 74, 86)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 894,
+      "height": 75,
+      "x": 483,
+      "y": 347.6875
+    },
+    "composer-footer": {
+      "background": "rgb(58, 63, 75)",
+      "blur": "none",
+      "color": "rgb(173, 178, 189)",
+      "width": 938,
+      "height": 52.25,
+      "x": 461,
+      "y": 490.6875
+    },
+    "selected-item": {
+      "background": "rgb(58, 63, 75)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 232,
+      "height": 43.25,
+      "x": 14,
+      "y": 79
+    },
+    "hover-item": {
+      "background": "rgba(0, 0, 0, 0)",
+      "blur": "none",
+      "color": "rgb(237, 240, 245)",
+      "width": 232,
+      "height": 43.25,
+      "x": 14,
+      "y": 130.25
+    },
+    "work-send": {
+      "background": "rgb(134, 203, 215)",
+      "blur": "none",
+      "color": "rgb(10, 32, 41)",
+      "width": 46,
+      "height": 46,
+      "x": 1331,
+      "y": 422.6875
+    }
+  },
+  "screenshot": "<project-root>\\docs\\assets\\regression-0.1.5\\修复验证-Work.png",
+  "finishedAt": "2026-10-07T11:08:30.322Z",
+  "passed": true
+}

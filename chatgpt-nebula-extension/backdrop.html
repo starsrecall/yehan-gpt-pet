@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- 独立扩展背景：媒体与本机存储均在扩展源，网页样式不会进入此文档。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>夜航背景</title>
+  <link rel="stylesheet" href="backdrop.css">
+  <script src="shared/settings.js" defer></script>
+  <script src="shared/media-store.js" defer></script>
+  <script src="backdrop.js" defer></script>
+</head>
+<body data-preset="aurora" data-moving="false" data-portrait-cycle="false" data-portrait-ready="false">
+  <div id="preset" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="stars"></div></div>
+  <img id="wallpaper-image" alt="" hidden>
+  <!-- 叠层按需解码后才显示；底图始终保留，过渡不会暴露空背景。 -->
+  <img id="wallpaper-color" alt="" hidden>
+  <video id="wallpaper-video" muted loop playsinline preload="metadata" hidden></video>
+  <img id="wallpaper-poster" alt="" hidden>
+  <!-- 光效只属于独立背景页，不挂在网页输入框或侧栏上。字符是装饰，不是额度数据。 -->
+  <div id="wireframe-effects" aria-hidden="true" hidden>
+    <div class="wireframe-grid"></div><div class="wireframe-sweep"></div>
+    <div class="code-rain"><span>01<br>1010<br>0A<br>001<br>F0<br>101<br>01<br>110</span><span>10<br>011<br>AF<br>1001<br>01<br>FF<br>101</span><span>0F<br>101<br>00<br>1010<br>A1<br>010<br>11</span><span>11<br>0A<br>101<br>001<br>F1<br>1010<br>00</span></div>
+  </div>
+  <div id="shade" aria-hidden="true"></div>
+  <div id="scanlines" aria-hidden="true" hidden></div>
+</body>
+</html>

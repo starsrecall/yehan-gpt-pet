@@ -1,0 +1,16 @@
+{
+  "name": "chatgpt-nebula-skin",
+  "version": "0.1.5",
+  "private": true,
+  "description": "夜航 Chrome 网页皮肤的本地开发测试入口，加载扩展无需安装开发依赖。",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test:dynamic": "node chatgpt-nebula-extension/tests/dynamic-wireframe-smoke.cjs",
+    "test:browser": "node chatgpt-nebula-extension/tests/browser-smoke.cjs",
+    "test:wireframe": "node chatgpt-nebula-extension/tests/wireframe-preset-smoke.cjs",
+    "test:work": "node chatgpt-nebula-extension/tests/work-style-smoke.cjs",
+    "test:layout": "node chatgpt-nebula-extension/tests/layout-style-smoke.cjs",
+    "test:composer": "node chatgpt-nebula-extension/tests/composer-visual-smoke.cjs"
+  },
+  "devDependencies": { "playwright": "1.62.1" }
+}

@@ -1,0 +1,154 @@
+{
+  "publicationNote": "分享副本仅归一化本机路径；断言、数值、版本、时间与运行文件哈希保留。原始运行工件留在本机。",
+  "verifiedAt": "2026-10-07T19:13:34.1362199+08:00",
+  "path": "<project-root>\\releases\\夜航-Chrome-0.1.5.zip",
+  "version": "0.1.5",
+  "sizeBytes": 6801722,
+  "sha256": "CB762D7D5AB20B8309DE5E79950A1489AA085F51C317EB8289305DFD712DC34B",
+  "filesCount": 21,
+  "runtimeFilesMatchSource": true,
+  "manifestAtRoot": true,
+  "oldReleasesPreserved": true,
+  "expectedPreviousVersions": [
+    "0.1.0",
+    "0.1.1",
+    "0.1.2",
+    "0.1.3",
+    "0.1.4"
+  ],
+  "comparedWithVersion": "0.1.4",
+  "previousPackageFound": true,
+  "changedRuntimeFiles": [
+    "manifest.json",
+    "README.md",
+    "backdrop.css"
+  ],
+  "files": [
+    {
+      "file": "manifest.json",
+      "sha256": "46AAE2DD0ACBDC3DF6CCF38301F7731FA833640AE21BA5783565380C70457A7E",
+      "matchesSource": true,
+      "changedFromPrevious": true
+    },
+    {
+      "file": "README.md",
+      "sha256": "CC32D13FB6E031D6C6998CE29E358807F9DDAE51E8D27A41174B84602BA1CD2C",
+      "matchesSource": true,
+      "changedFromPrevious": true
+    },
+    {
+      "file": "content.js",
+      "sha256": "4C4CE7223A0F02F21CD537C1F0AFD11237298FB4506CB2004D82FC77B3A36187",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "backdrop.html",
+      "sha256": "04799F71DF526A2FB5D211B0C6DEFFEE2B9654D2143E5226FAC39B169653BD83",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "backdrop.css",
+      "sha256": "EE55EA7D9849C9634A0F24D3093EE57EC3C9E4DA7A37792B0633CBCD487EC62A",
+      "matchesSource": true,
+      "changedFromPrevious": true
+    },
+    {
+      "file": "backdrop.js",
+      "sha256": "1CA6F8DB0E12974385481E4EE43AC2BF8297BB026971EA2235980C7DB881873E",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "options.html",
+      "sha256": "6B77DD277CC7A033C14E2B3AF25F081DAC4EF795262DDA11901E8570BAFF234C",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "options.css",
+      "sha256": "0064E488CE615924059AAB05C4C8ECA0482E3375FE73034FF2153022195C17DD",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "options.js",
+      "sha256": "84FF2C57DEFAE02963AAEA38138B629DDBF5B76DF318212B7780A6ABC9E6E2FF",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "popup.html",
+      "sha256": "B16E1831F2A5A6CF0BD8ADB87AE9BDE0C93B87FADA736D639FA017C49C92E38D",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "popup.css",
+      "sha256": "DDEC3C412A22A123787942C16B40186876F08F0F7E744D58C829B233BFD2C980",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "popup.js",
+      "sha256": "152BCEECC436815BE1498BAD55FBE34B5F264AE05166B33383F8AF40705DAD29",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/character-wallpaper.png",
+      "sha256": "A4C2EA8149C3D4169F48415CCFCAFDF4AE40F3EF0E36DCF74341444B60B0B057",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/icon-128.png",
+      "sha256": "98780922B289C56BFDAAA74B02A6546DBC55B246A595B42DA70F5AA15DBB7864",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/icon-16.png",
+      "sha256": "F6FC7D87E44C445FDD14E8621D7C6F0DEFD4DF4169BF3F65A9EC5926848D0277",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/icon-48.png",
+      "sha256": "04748348D49C1DB7092C18E24C21F7FB0AD42540B51EAFA77AA4FA64684C3E13",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/wireframe-color-v1.png",
+      "sha256": "FB565BF3D1A91459EF04BD00FFD492F21FDEA45EAD48B5D7B468D0F75A188FF4",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "assets/wireframe-wallpaper.png",
+      "sha256": "00510FB8DEC118E6F1C3791DECD0E65D1390FA8D54C0DB070986332C9E09ADED",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "shared/media-store.js",
+      "sha256": "C755D13A8CA37807304098A856B386AEC70AD1DFD52176D3AC42AECEB983600E",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "shared/settings.js",
+      "sha256": "9A57D1F59634532BB6712E3F7E5BD2FE658371C659A3FD3EA941D5A443684831",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    },
+    {
+      "file": "styles/site.css",
+      "sha256": "1C7696D2D7D80CE8EA6BC1515D77F3529BFD9BE0CE35E52195C78EEB1AF74974",
+      "matchesSource": true,
+      "changedFromPrevious": false
+    }
+  ]
+}

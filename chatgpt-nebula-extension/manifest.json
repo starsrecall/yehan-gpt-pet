@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "夜航 · ChatGPT 网页皮肤",
+  "version": "0.1.5",
+  "description": "为 ChatGPT 网页添加本机壁纸、玻璃面板和蓝色光效。",
+  "minimum_chrome_version": "115",
+  "permissions": ["storage"],
+  "icons": {"16": "assets/icon-16.png", "48": "assets/icon-48.png", "128": "assets/icon-128.png"},
+  "action": {
+    "default_title": "夜航 · 网页皮肤",
+    "default_popup": "popup.html",
+    "default_icon": {"16": "assets/icon-16.png", "48": "assets/icon-48.png"}
+  },
+  "options_ui": {"page": "options.html", "open_in_tab": true},
+  "content_scripts": [{
+    "matches": ["https://chatgpt.com/*"],
+    "js": ["shared/settings.js", "content.js"],
+    "css": ["styles/site.css"],
+    "run_at": "document_idle",
+    "all_frames": false,
+    "world": "ISOLATED"
+  }],
+  "web_accessible_resources": [{
+    "resources": ["backdrop.html"],
+    "matches": ["https://chatgpt.com/*"]
+  }],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; media-src 'self' blob:; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-src 'self'"
+  }
+}

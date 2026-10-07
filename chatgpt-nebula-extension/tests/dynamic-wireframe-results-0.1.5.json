@@ -1,0 +1,1252 @@
+{
+  "publicationNote": "分享副本仅归一化本机路径；断言、数值、版本、时间与运行文件哈希保留。原始运行工件留在本机。",
+  "startedAt": "2026-10-07T11:02:26.355Z",
+  "extensionVersion": "0.1.5",
+  "scope": "真实 Chrome / 本地模拟页面 / 独立 profile；非用户账号实机验证。合成生命周期事件不证明真实 bfcache 命中。",
+  "runtimeHashes": {
+    "backdrop.js": "1ca6f8db0e12974385481e4ee43ac2bf8297bb026971ea2235980c7db881873e",
+    "backdrop.css": "ee55ea7d9849c9634a0f24d3093ee57ec3c9e4da7a37792b0633cbcd487ec62a",
+    "backdrop.html": "04799f71df526a2fb5d211b0c6deffee2b9654d2143e5226fac39b169653bd83",
+    "shared/settings.js": "9a57d1f59634532bb6712e3f7e5bd2fe658371c659a3fd3ea941d5a443684831",
+    "assets/wireframe-wallpaper.png": "00510fb8dec118e6f1c3791decd0e65d1390fa8d54c0db070986332c9e09aded",
+    "assets/wireframe-color-v1.png": "fb565bf3d1a91459ef04bd00ffd492f21fdea45ead48b5d7b468d0f75a188ff4"
+  },
+  "artifactDir": "<project-root>\\chatgpt-nebula-extension\\tests\\dynamic-wireframe-artifacts\\run-goA9lH",
+  "checks": [
+    {
+      "name": "旧设置与非法值不会意外开启人物叠化",
+      "passed": true,
+      "durationMs": 9,
+      "detail": {
+        "default": false,
+        "old": false,
+        "invalid": false
+      }
+    },
+    {
+      "name": "一键风格显式开启人物叠化，保留用户停用与动态开关",
+      "passed": true,
+      "durationMs": 84,
+      "detail": {
+        "enabled": false,
+        "mode": "glass",
+        "preset": "wireframe",
+        "accent": "#52deff",
+        "dim": 18,
+        "panelOpacity": 48,
+        "blur": 8,
+        "positionX": 75,
+        "positionY": 50,
+        "motion": false,
+        "portraitCycle": true,
+        "scanlines": true,
+        "backgroundType": "preset",
+        "assetVersion": 0
+      }
+    },
+    {
+      "name": "人物复选框只修改自己的开关，不覆盖其他已保存外观项",
+      "passed": true,
+      "durationMs": 83,
+      "detail": {
+        "before": {
+          "enabled": false,
+          "mode": "glass",
+          "preset": "wireframe",
+          "accent": "#52deff",
+          "dim": 18,
+          "panelOpacity": 48,
+          "blur": 8,
+          "positionX": 75,
+          "positionY": 50,
+          "motion": false,
+          "portraitCycle": true,
+          "scanlines": true,
+          "backgroundType": "preset",
+          "assetVersion": 0
+        },
+        "after": {
+          "enabled": false,
+          "mode": "glass",
+          "preset": "wireframe",
+          "accent": "#52deff",
+          "dim": 18,
+          "panelOpacity": 48,
+          "blur": 8,
+          "positionX": 75,
+          "positionY": 50,
+          "motion": false,
+          "portraitCycle": false,
+          "scanlines": true,
+          "backgroundType": "preset",
+          "assetVersion": 0
+        }
+      }
+    },
+    {
+      "name": "两张本机图片实际解码，叠层与底图使用相同覆盖范围",
+      "passed": true,
+      "durationMs": 82,
+      "detail": {
+        "preset": "wireframe",
+        "moving": "true",
+        "ready": "true",
+        "cycle": "true",
+        "layers": {
+          "wallpaper-image": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 1,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": []
+          },
+          "wallpaper-color": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 0,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": [
+              {
+                "name": "nebula-portrait-cycle",
+                "state": "running",
+                "time": 0
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "浏览器使用固定 10 秒周期，停留与叠化相位符合预期且底图始终可见",
+      "passed": true,
+      "durationMs": 225,
+      "detail": {
+        "periodMs": 10000,
+        "samples": [
+          {
+            "progress": 0.1,
+            "name": "nebula-portrait-cycle",
+            "duration": 10000,
+            "currentTime": 1000,
+            "opacity": 0,
+            "baseOpacity": 1
+          },
+          {
+            "progress": 0.3,
+            "name": "nebula-portrait-cycle",
+            "duration": 10000,
+            "currentTime": 3000,
+            "opacity": 0.5,
+            "baseOpacity": 1
+          },
+          {
+            "progress": 0.5,
+            "name": "nebula-portrait-cycle",
+            "duration": 10000,
+            "currentTime": 5000,
+            "opacity": 1,
+            "baseOpacity": 1
+          },
+          {
+            "progress": 0.7,
+            "name": "nebula-portrait-cycle",
+            "duration": 10000,
+            "currentTime": 7000,
+            "opacity": 0.5,
+            "baseOpacity": 1
+          },
+          {
+            "progress": 0.9,
+            "name": "nebula-portrait-cycle",
+            "duration": 10000,
+            "currentTime": 9000,
+            "opacity": 0,
+            "baseOpacity": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "人物动画真实推进，并能渲染线框与有色两个相位",
+      "passed": true,
+      "durationMs": 919,
+      "detail": {
+        "realTimeAdvanceMs": 272.6200000028769,
+        "wire": {
+          "name": "nebula-portrait-cycle",
+          "duration": 10000,
+          "currentTime": 1000,
+          "opacity": 0,
+          "baseOpacity": 1
+        },
+        "color": {
+          "name": "nebula-portrait-cycle",
+          "duration": 10000,
+          "currentTime": 5000,
+          "opacity": 1,
+          "baseOpacity": 1
+        },
+        "screenshots": [
+          {
+            "path": "<project-root>\\chatgpt-nebula-extension\\tests\\dynamic-wireframe-artifacts\\run-goA9lH\\wireframe-phase.png",
+            "sha256": "cd377afdea3b5b8a29c657ce90c3dc72d806cd7131b27a7ece53e7f5e59e9a3d"
+          },
+          {
+            "path": "<project-root>\\chatgpt-nebula-extension\\tests\\dynamic-wireframe-artifacts\\run-goA9lH\\color-phase.png",
+            "sha256": "819e8daa7a0882bc25919fc31b128a7879254fc7709d67d7ebf7b3d76c781fe8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "新增背景不改变聊天几何，编辑和发送按钮仍可操作",
+      "passed": true,
+      "durationMs": 60
+    },
+    {
+      "name": "关闭人物叠化释放有色资源，保留原来的动态装饰",
+      "passed": true,
+      "durationMs": 15,
+      "detail": {
+        "preset": "wireframe",
+        "moving": "true",
+        "ready": "false",
+        "cycle": "false",
+        "layers": {
+          "wallpaper-image": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 1,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": []
+          },
+          "wallpaper-color": {
+            "hidden": true,
+            "src": null,
+            "complete": true,
+            "width": 0,
+            "height": 0,
+            "opacity": 0,
+            "display": "none",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "animations": []
+          }
+        }
+      }
+    },
+    {
+      "name": "总动态开关关闭后回到静态线框，重新开启从线框起播",
+      "passed": true,
+      "durationMs": 85,
+      "detail": {
+        "preset": "wireframe",
+        "moving": "true",
+        "ready": "true",
+        "cycle": "true",
+        "layers": {
+          "wallpaper-image": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 1,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": []
+          },
+          "wallpaper-color": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 0,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": [
+              {
+                "name": "nebula-portrait-cycle",
+                "state": "running",
+                "time": 0
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "人物解码返回值仍挂起时切换减少动态，旧回调不复活叠层且恢复后重新解码",
+      "passed": true,
+      "durationMs": 143,
+      "detail": {
+        "pending": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "reduced": {
+          "preset": "wireframe",
+          "moving": "false",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "afterOldCallback": {
+          "preset": "wireframe",
+          "moving": "false",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "restored": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "running",
+                  "time": 0
+                }
+              ]
+            }
+          }
+        },
+        "mechanism": "Chrome 已解码图片 + 单节点 decode Promise 受控挂起；验证偏好切换与迟到回调。"
+      }
+    },
+    {
+      "name": "系统减少动态设置覆盖人物循环与装饰动画",
+      "passed": true,
+      "durationMs": 35
+    },
+    {
+      "name": "父页后台可见性提示暂停同一相位，恢复后继续推进",
+      "passed": true,
+      "durationMs": 446,
+      "detail": {
+        "before": {
+          "preset": "wireframe",
+          "moving": "false",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "paused",
+                  "time": 12.102999999711761
+                }
+              ]
+            }
+          }
+        },
+        "after": {
+          "preset": "wireframe",
+          "moving": "false",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "paused",
+                  "time": 12.102999999711761
+                }
+              ]
+            }
+          }
+        },
+        "resumed": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "running",
+                  "time": 184.8270000004524
+                }
+              ]
+            }
+          }
+        },
+        "mechanism": "从真实宿主页发送受限可见性消息；不是系统后台状态注入。"
+      }
+    },
+    {
+      "name": "记录真实标签切换的可见性证据，不把 headless 常驻 visible 当成后台验证",
+      "passed": true,
+      "durationMs": 368,
+      "detail": {
+        "actualDocumentHidden": false,
+        "actualBackgroundPauseVerified": false,
+        "limitation": "本次 Chrome headless 标签切换没有产生 hidden；后台暂停仅由上一项可见性协议测试覆盖。"
+      }
+    },
+    {
+      "name": "背景 pagehide/pageshow 合成恢复释放并重建两张资源",
+      "passed": true,
+      "durationMs": 10,
+      "detail": {
+        "lifecycle": "合成 persisted 事件，未验证真实 bfcache 缓存命中。",
+        "restored": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "running",
+                  "time": 0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "切换普通预设与本机素材没有有色叠层或线框动画残留",
+      "passed": true,
+      "durationMs": 89,
+      "detail": {
+        "preset": "custom",
+        "moving": "true",
+        "ready": "false",
+        "cycle": "false",
+        "layers": {
+          "wallpaper-image": {
+            "hidden": false,
+            "src": "blob:chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/29565c60-8438-4c57-8556-b386107023b0",
+            "complete": true,
+            "width": 16,
+            "height": 16,
+            "opacity": 1,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": []
+          },
+          "wallpaper-color": {
+            "hidden": true,
+            "src": null,
+            "complete": true,
+            "width": 0,
+            "height": 0,
+            "opacity": 0,
+            "display": "none",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "animations": []
+          }
+        }
+      }
+    },
+    {
+      "name": "有色图加载失败只降级为静态线框，输入仍可用",
+      "passed": true,
+      "durationMs": 49,
+      "detail": {
+        "status": {
+          "message": "人物画面切换暂时不可用，已保留静态线框。可关闭再开启“人物画面切换”重试。",
+          "state": "fallback",
+          "updatedAt": 1791370950176
+        },
+        "result": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "失败后关闭叠化清除旧提示，再开启能够在同一线框预设重试",
+      "passed": true,
+      "durationMs": 46,
+      "detail": {
+        "result": {
+          "preset": "wireframe",
+          "moving": "true",
+          "ready": "true",
+          "cycle": "true",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 0,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": [
+                {
+                  "name": "nebula-portrait-cycle",
+                  "state": "running",
+                  "time": 0
+                }
+              ]
+            }
+          }
+        },
+        "staticStatus": {
+          "message": "",
+          "state": "ready",
+          "updatedAt": 1791370950221
+        },
+        "status": {
+          "message": "",
+          "state": "ready",
+          "updatedAt": 1791370950252
+        }
+      }
+    },
+    {
+      "name": "叠层失败后主动关闭总动态同样清除旧故障提示并保留静态线框",
+      "passed": true,
+      "durationMs": 49,
+      "detail": {
+        "result": {
+          "preset": "wireframe",
+          "moving": "false",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+              "complete": true,
+              "width": 1672,
+              "height": 941,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "staticStatus": {
+          "message": "",
+          "state": "ready",
+          "updatedAt": 1791370950275
+        }
+      }
+    },
+    {
+      "name": "加载中修改同一预设亮度不会取消有效的人物解码",
+      "passed": true,
+      "durationMs": 143,
+      "detail": {
+        "preset": "wireframe",
+        "moving": "true",
+        "ready": "true",
+        "cycle": "true",
+        "layers": {
+          "wallpaper-image": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 1,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": []
+          },
+          "wallpaper-color": {
+            "hidden": false,
+            "src": "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+            "complete": true,
+            "width": 1672,
+            "height": 941,
+            "opacity": 0,
+            "display": "block",
+            "objectFit": "cover",
+            "objectPosition": "75% 50%",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "animations": [
+              {
+                "name": "nebula-portrait-cycle",
+                "state": "running",
+                "time": 0
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "换背景后迟到的有色失败不会撤销新的本机素材",
+      "passed": true,
+      "durationMs": 357,
+      "detail": {
+        "result": {
+          "preset": "custom",
+          "moving": "true",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": false,
+              "src": "blob:chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/78570bc3-0848-4f38-b05e-d7eed53c305a",
+              "complete": true,
+              "width": 16,
+              "height": 16,
+              "opacity": 1,
+              "display": "block",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 1920,
+                "height": 1080
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "status": {
+          "nebulaMediaStatus": {
+            "message": "",
+            "state": "ready",
+            "updatedAt": 1791370950610
+          }
+        }
+      }
+    },
+    {
+      "name": "线框底图失败仍使用既有极光降级，没有半张有色孤层",
+      "passed": true,
+      "durationMs": 30,
+      "detail": {
+        "result": {
+          "preset": "aurora",
+          "moving": "true",
+          "ready": "false",
+          "cycle": "false",
+          "layers": {
+            "wallpaper-image": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 1,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            },
+            "wallpaper-color": {
+              "hidden": true,
+              "src": null,
+              "complete": true,
+              "width": 0,
+              "height": 0,
+              "opacity": 0,
+              "display": "none",
+              "objectFit": "cover",
+              "objectPosition": "75% 50%",
+              "rect": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0
+              },
+              "animations": []
+            }
+          }
+        },
+        "failedStatus": {
+          "message": "背景无法正常显示，已切回蓝色氛围。请重新选择可播放的素材。",
+          "state": "fallback",
+          "updatedAt": 1791370950815
+        },
+        "stoppedStatus": {
+          "message": "背景无法正常显示，已切回蓝色氛围。请重新选择可播放的素材。",
+          "state": "fallback",
+          "updatedAt": 1791370950815
+        }
+      }
+    },
+    {
+      "name": "宿主页停用及恢复不遗留叠层，并恢复原生属性和几何",
+      "passed": true,
+      "durationMs": 320
+    },
+    {
+      "name": "动态背景无脚本错误、主动外部请求或隐式改写本机素材",
+      "passed": true,
+      "durationMs": 1,
+      "detail": {
+        "requestedFailureInjection": 6
+      }
+    }
+  ],
+  "errors": [],
+  "unexpectedRemoteRequests": [],
+  "screenshots": [
+    "<project-root>\\chatgpt-nebula-extension\\tests\\dynamic-wireframe-artifacts\\run-goA9lH\\wireframe-phase.png",
+    "<project-root>\\chatgpt-nebula-extension\\tests\\dynamic-wireframe-artifacts\\run-goA9lH\\color-phase.png"
+  ],
+  "intentionallyFailedRequests": [
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-color-v1.png",
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png",
+    "chrome-extension://bhbbadkbbbamhokpjdioblgmffgegpfd/assets/wireframe-wallpaper.png"
+  ],
+  "profile": "<project-root>\\.test-profiles\\nebula-dynamic-wireframe-b0xcaX",
+  "browserVersion": "Chrome/154.0.8037.98",
+  "nativeGeometry": {
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "width": 280,
+      "height": 1080,
+      "padding": "0px",
+      "margin": "0px",
+      "borderRadius": "0px"
+    },
+    "main": {
+      "x": 280,
+      "y": 0,
+      "width": 1640,
+      "height": 1080,
+      "padding": "0px",
+      "margin": "0px",
+      "borderRadius": "0px"
+    },
+    "thread": {
+      "x": 590,
+      "y": 347.421875,
+      "width": 1020,
+      "height": 417.578125,
+      "padding": "0px",
+      "margin": "265.422px 310px 265.406px",
+      "borderRadius": "0px"
+    },
+    "composer-form": {
+      "x": 590,
+      "y": 533.40625,
+      "width": 1020,
+      "height": 186,
+      "padding": "0px",
+      "margin": "0px",
+      "borderRadius": "0px"
+    },
+    "composer-surface": {
+      "x": 590,
+      "y": 533.40625,
+      "width": 1020,
+      "height": 186,
+      "padding": "22px 24px 16px",
+      "margin": "0px",
+      "borderRadius": "28px"
+    },
+    "prompt-textarea": {
+      "x": 614,
+      "y": 555.40625,
+      "width": 972,
+      "height": 94,
+      "padding": "0px",
+      "margin": "0px",
+      "borderRadius": "0px"
+    },
+    "sidebar-footer": {
+      "x": 0,
+      "y": 993,
+      "width": 280,
+      "height": 87,
+      "padding": "19px 25px",
+      "margin": "0px",
+      "borderRadius": "0px"
+    }
+  },
+  "finishedAt": "2026-10-07T11:02:31.391Z",
+  "passed": true
+}

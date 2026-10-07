@@ -1,0 +1,93 @@
+<!doctype html>
+<!--
+  长对话布局回归夹具：根据用户开/关截图中的症状和公开语义节点构造。
+  不是用户实机 DOM，不含账户、项目、聊天的真实资料。
+  原生 layer / utility 的作用由这里显式模拟，用来检测皮肤是否改变正常布局。
+-->
+<html lang="zh-CN" data-theme="dark" data-panel="closed">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>夜航 · 长对话布局回归夹具</title>
+  <style id="native-layout-style" data-native-layout>
+    @layer theme, base, components, utilities;
+    @layer theme {
+      :root { --layout-sidebar-width:260px; --layout-panel-width:0px; --color-surface:#30343f; --color-surface-secondary:#3a3f4b; --color-background-panel:#444a56; --color-text-primary:#edf0f5; --color-text-secondary:#adb2bd; }
+      :root[data-panel="open"] { --layout-panel-width:330px; }
+    }
+    @layer base {
+      * { box-sizing:border-box; padding:0; margin:0; }
+      html,body { width:100%; height:100%; overflow:hidden; }
+      body { font:15px/1.65 system-ui,sans-serif; color:var(--color-text-primary); background:#20242d; }
+      button,a { font:inherit; color:inherit; }
+      .conversation-column { max-width:none; }
+      .message-card,.sidebar-project,.sidebar-user,.native-editor-form { padding:0; }
+    }
+    @layer components {
+      .layout-shell { position:fixed; inset:64px 0 0; display:grid; grid-template-columns:var(--layout-sidebar-width) minmax(0,1fr) var(--layout-panel-width); }
+      .app-shell-left-panel { position:relative; min-height:0; min-width:0; background:var(--color-surface); }
+      .sidebar-fixed-header { position:fixed; left:0; top:0; width:var(--layout-sidebar-width); height:64px; display:flex; align-items:center; background:var(--color-surface); z-index:30; }
+      .sidebar-project-scroll { width:100%; height:100%; overflow:auto; position:relative; }
+      .sidebar-project { display:block; text-decoration:none; border-radius:10px; }
+      .sidebar-project:hover { background:var(--color-surface-secondary); }
+      .sidebar-user { position:sticky; bottom:0; min-height:88px; background:var(--color-surface); z-index:20; border-top:1px solid #9eb2ca22; }
+      .sidebar-user strong { display:block; font-weight:500; }
+      .sidebar-user small { color:var(--color-text-secondary); }
+      .fixed-marker { position:fixed; top:15px; left:215px; width:14px; height:14px; }
+      .layout-main { min-width:0; min-height:0; position:relative; }
+      .main-fixed-header { position:fixed; top:0; left:var(--layout-sidebar-width); width:calc(100vw - var(--layout-sidebar-width) - var(--layout-panel-width)); height:64px; display:flex; justify-content:space-between; align-items:center; background:var(--color-surface); z-index:25; }
+      .fixture-tag { max-width:380px; font-size:11px; color:#b3c4d8; border:1px solid #7893ad55; border-radius:10px; }
+      .conversation-scroll { height:100%; width:100%; overflow:auto; }
+      .conversation-column { width:100%; }
+      .message-card { border:1px solid #9eb2ca33; border-radius:16px; background:var(--color-surface-secondary); }
+      .message-body { overflow-wrap:anywhere; }
+      .message-body p { line-height:1.8; }
+      .native-editor-dock { position:fixed; bottom:14px; left:var(--layout-sidebar-width); width:calc(100vw - var(--layout-sidebar-width) - var(--layout-panel-width)); display:flex; justify-content:center; z-index:24; }
+      .composer-surface-chrome { width:min(896px,calc(100% - 64px)); border-radius:22px; background:var(--color-background-panel); border:1px solid #7893ad44; }
+      .native-editor-form { background:var(--color-background-panel); }
+      .ProseMirror { min-height:55px; outline:none; }
+      .native-composer-controls { display:flex; justify-content:space-between; align-items:center; }
+      .native-composer-controls button { border:0; border-radius:8px; background:#6cafbd; color:#092330; }
+      .inspector-panel { min-width:0; overflow:auto; background:var(--color-surface); border-left:1px solid #9eb2ca33; }
+      html[data-panel="closed"] .inspector-panel { display:none; }
+      .inspector-panel h2 { font-size:18px; }
+      .inspector-card { border-radius:12px; background:var(--color-surface-secondary); }
+    }
+    @layer utilities {
+      .sidebar-fixed-header,.main-fixed-header { padding:0 22px; }
+      .fixture-tag { padding:5px 10px; }
+      .sidebar-project-scroll { scroll-padding-bottom:88px; }
+      .sidebar-project-list { padding:18px 14px 22px; }
+      .sidebar-project { padding:10px 12px; margin-bottom:4px; }
+      .sidebar-user { padding:16px 22px; }
+      .conversation-column { max-width:960px; margin-left:auto; margin-right:auto; padding:38px 32px 220px; }
+      .message-card { padding:23px 27px; margin-bottom:24px; }
+      .message-body h3 { margin-bottom:15px; font-size:18px; }
+      .message-body p { margin-bottom:12px; }
+      .native-editor-form { padding:19px 23px; }
+      .native-composer-controls { margin-top:12px; }
+      .native-composer-controls button { padding:6px 12px; }
+      .inspector-panel { padding:22px 18px; }
+      .inspector-card { padding:18px; margin-top:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout-shell" id="layout-shell">
+    <aside class="app-shell-left-panel" id="layout-sidebar">
+      <header class="sidebar-fixed-header" id="sidebar-fixed-header">ChatGPT　⌄</header>
+      <div class="fixed-marker" id="sidebar-fixed-marker" aria-hidden="true"></div>
+      <div class="sidebar-project-scroll" id="sidebar-project-scroll">
+        <nav class="sidebar-project-list" id="sidebar-project-list">__PROJECT_ROWS__</nav>
+        <footer class="sidebar-user" id="sidebar-user"><strong>◉　本地测试用户</strong><small>　　用户区应遮挡其后项目</small></footer>
+      </div>
+    </aside>
+    <main class="layout-main" id="layout-main">
+      <header class="main-fixed-header" id="main-fixed-header"><span>ChatGPT　长对话</span><span class="fixture-tag">来源派生布局夹具 · 非实机 DOM<br>检测原生间距、居中、滚动与侧栏用户区</span></header>
+      <div class="conversation-scroll" id="conversation-scroll"><section class="conversation-column" id="conversation-column">__MESSAGE_CARDS__</section></div>
+      <div class="native-editor-dock" id="native-editor-dock"><div class="composer-surface-chrome" id="layout-composer"><form data-type="unified-composer" class="native-editor-form" id="native-editor-form"><div class="ProseMirror" contenteditable="true" role="textbox" aria-label="输入消息" id="layout-editor">继续讨论这段长对话。</div><div class="native-composer-controls" id="native-composer-controls"><span>＋　附件　　模型　⌄</span><button type="button">发送 ↑</button></div></form></div></div>
+    </main>
+    <aside class="inspector-panel" id="inspector-panel"><h2>右侧资料面板</h2><p>打开后正文与输入区仍按原生布局重新居中。</p><div class="inspector-card" id="inspector-card">测试卡片的内边距由 native utilities 提供。</div></aside>
+  </div>
+</body>
+</html>

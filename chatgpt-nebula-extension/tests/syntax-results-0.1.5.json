@@ -1,0 +1,38 @@
+{
+  "publicationNote": "分享副本仅归一化本机路径；断言、数值、版本、时间与运行文件哈希保留。原始运行工件留在本机。",
+  "version": "0.1.5",
+  "checkedAt": "2026-10-07T19:13:32.4644980+08:00",
+  "checks": [
+    {
+      "file": "content.js",
+      "passed": true,
+      "sha256": "4C4CE7223A0F02F21CD537C1F0AFD11237298FB4506CB2004D82FC77B3A36187"
+    },
+    {
+      "file": "backdrop.js",
+      "passed": true,
+      "sha256": "1CA6F8DB0E12974385481E4EE43AC2BF8297BB026971EA2235980C7DB881873E"
+    },
+    {
+      "file": "options.js",
+      "passed": true,
+      "sha256": "84FF2C57DEFAE02963AAEA38138B629DDBF5B76DF318212B7780A6ABC9E6E2FF"
+    },
+    {
+      "file": "popup.js",
+      "passed": true,
+      "sha256": "152BCEECC436815BE1498BAD55FBE34B5F264AE05166B33383F8AF40705DAD29"
+    },
+    {
+      "file": "shared/settings.js",
+      "passed": true,
+      "sha256": "9A57D1F59634532BB6712E3F7E5BD2FE658371C659A3FD3EA941D5A443684831"
+    },
+    {
+      "file": "shared/media-store.js",
+      "passed": true,
+      "sha256": "C755D13A8CA37807304098A856B386AEC70AD1DFD52176D3AC42AECEB983600E"
+    }
+  ],
+  "testScriptsSyntaxPassed": true
+}

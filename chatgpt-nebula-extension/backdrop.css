@@ -1,0 +1,63 @@
+/* 独立背景动画与媒体外观；不引用任何 ChatGPT 页面选择器。 */
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #07101e; }
+body { --wallpaper-dim: 0.35; --wallpaper-x: 65%; --wallpaper-y: 50%; }
+[hidden] { display: none !important; }
+#preset, #wallpaper-image, #wallpaper-color, #wallpaper-video, #wallpaper-poster, #shade, #scanlines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+#wallpaper-image, #wallpaper-color, #wallpaper-video, #wallpaper-poster { object-fit: cover; object-position: var(--wallpaper-x) var(--wallpaper-y); }
+#preset { background: radial-gradient(ellipse at 75% 25%, #14334f 0%, transparent 54%), linear-gradient(125deg, #050a16, #0c1830 60%, #071729); }
+.orb { position: absolute; border-radius: 50%; filter: blur(65px); opacity: 0.45; }
+.orb-one { width: 55vw; height: 55vw; right: -8%; top: -30%; background: #1175a0; animation: nebula-drift 28s ease-in-out infinite alternate; }
+.orb-two { width: 42vw; height: 42vw; left: 10%; bottom: -40%; background: #2f3c91; animation: nebula-drift 36s ease-in-out infinite alternate-reverse; }
+.stars { position: absolute; inset: 0; opacity: 0.34; background-image: radial-gradient(circle at 10px 10px, #c6e7ff 0 1px, transparent 1.6px); background-size: 113px 97px; }
+body[data-preset="midnight"] #preset { background: radial-gradient(ellipse at 80% 85%, #17304a, transparent 62%), #050b16; }
+body[data-preset="midnight"] .orb { opacity: 0.12; }
+body[data-preset="paper"] #preset { background: radial-gradient(ellipse at 80% 20%, #344353, transparent 65%), linear-gradient(130deg, #111b26, #273545); }
+body[data-preset="paper"] .orb { opacity: 0.08; }
+body[data-preset="paper"] .stars { opacity: 0; }
+#shade { background: linear-gradient(90deg, rgb(3 9 20 / 0.23), transparent 75%), rgb(0 0 0 / var(--wallpaper-dim)); }
+#scanlines { opacity: 0.11; background: repeating-linear-gradient(0deg, transparent 0 3px, rgb(160 220 255 / 0.23) 3px 4px); }
+/* 动态关闭或后台时暂停自己的动画；媒体暂停由 JS 管理。 */
+body[data-moving="false"] .orb { animation-play-state: paused; }
+@keyframes nebula-drift { from { transform: translate3d(-3%, 2%, 0) scale(1); } to { transform: translate3d(6%, -5%, 0) scale(1.12); } }
+@media (prefers-reduced-motion: reduce) { .orb { animation: none; } }
+
+/* 线框蓝光：两张同构图原创壁纸，网格、缓慢光束和稀疏字符在背景内运动。 */
+body[data-preset="wireframe"] { background: #010409; }
+body[data-preset="wireframe"] #shade {
+  background: linear-gradient(90deg, rgb(0 2 7 / 0.54), rgb(0 2 7 / 0.28) 38%, transparent 72%), rgb(0 0 0 / var(--wallpaper-dim));
+}
+#wireframe-effects, .wireframe-grid, .wireframe-sweep, .code-rain { position: absolute; inset: 0; pointer-events: none; }
+.wireframe-grid {
+  opacity: 0.065;
+  background-image: linear-gradient(rgb(88 194 255 / 0.5) 1px, transparent 1px), linear-gradient(90deg, rgb(88 194 255 / 0.5) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(90deg, transparent 25%, #000 90%);
+}
+.wireframe-sweep {
+  inset: 0 0 auto 28%; height: 2px; top: 32%; opacity: 0.16;
+  background: linear-gradient(90deg, transparent, #63dcff 65%, #b9f9ff);
+  box-shadow: 0 0 14px 2px rgb(62 175 255 / 0.24);
+  animation: nebula-wire-sweep 16s ease-in-out infinite alternate;
+}
+.code-rain { inset: 0 1% 0 51%; overflow: hidden; opacity: 0.09; color: #68dfec; font: 11px/2 monospace; }
+.code-rain span { position: absolute; top: -35%; left: 8%; animation: nebula-code-fall 25s linear infinite; }
+.code-rain span:nth-child(2) { left: 35%; animation-delay: -12s; animation-duration: 31s; }
+.code-rain span:nth-child(3) { left: 64%; animation-delay: -20s; animation-duration: 29s; }
+.code-rain span:nth-child(4) { left: 92%; animation-delay: -7s; animation-duration: 35s; }
+/* 和媒体使用同一可见性/动态开关；关闭后保留当前静态帧，无闪烁。 */
+body[data-moving="false"] :is(.wireframe-sweep, .code-rain span) { animation-play-state: paused; }
+@keyframes nebula-wire-sweep { from { transform: translateY(-28px); } to { transform: translateY(80px); } }
+@keyframes nebula-code-fall { from { transform: translateY(-15vh); } to { transform: translateY(140vh); } }
+@media (prefers-reduced-motion: reduce) { .wireframe-sweep, .code-rain span { animation: none; } }
+
+/* 人物叠化只改变独立背景内的透明度；不循环换 src，也不改变网页几何。
+ * 每轮固定 10 秒，两端各停留一段时间；线框底图一直可见，避免过渡黑屏。
+ * 后台 paused 保留进度；关闭人物/动态则由 JS 移除该动画并回到线框。 */
+#wallpaper-color { opacity: 0; }
+body[data-portrait-cycle="true"] #wallpaper-color { animation: nebula-portrait-cycle 10s ease-in-out infinite; }
+body[data-moving="false"] #wallpaper-color { animation-play-state: paused; }
+@keyframes nebula-portrait-cycle {
+  0%, 20%, 80%, 100% { opacity: 0; }
+  40%, 60% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { #wallpaper-color { animation: none !important; opacity: 0; } }

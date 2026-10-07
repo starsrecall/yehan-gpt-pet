@@ -1,0 +1,238 @@
+/*
+ * ChatGPT 网页适配层。更改网页结构后优先检查这里。
+ * 规则只在插件启用时生效；不更改容器尺寸、滚动、按钮行为或编辑器内容。
+ * 0.1.2 布局修复依据见 docs/布局偏差调查与修复.md；0.1.3 输入修复见输入框与线框蓝光说明。
+ * Chrome 在网页 DOM 建立前注入静态 CSS；必须使用插件独有层名，
+ * 不抢先注册站点 utilities，否则会使后到的 base/reset 覆盖原网页间距。
+ * 独有层的重要声明覆盖后来的作者层，但不承诺覆盖内联重要声明。
+ * CSS 注入时机：https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts
+ * 层排序依据：https://www.w3.org/TR/css-cascade-5/#layer-order
+ */
+
+@layer nebula-skin {
+
+/* 背景在 body 的独立层叠上下文内，负层级仍位于 html 底色之上。 */
+html[data-nebula-enabled="true"] { background: #08101e !important; color-scheme: dark !important; }
+html[data-nebula-enabled="true"] body {
+  background: transparent !important;
+  isolation: isolate !important;
+  color: #edf4ff;
+}
+/* 新预设单独用深黑青蓝色；其它预设和用户既有设置不会自动迁移。 */
+html[data-nebula-enabled="true"][data-nebula-preset="wireframe"] {
+  --nebula-composer-rgb: 3 9 18;
+  --nebula-sidebar-rgb: 3 9 18;
+  --nebula-edge-alpha: 0.35;
+}
+#nebula-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  display: block !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/*
+ * 新旧语义变量同时覆盖 html/body 与局部主题节点，防止内部 data-theme 重设颜色。
+ * 2026-09-26 的 ChatGPT CSS fixes 源码使用 --color-surface 等新变量；
+ * GPTskins 源码使用 --composer-surface-*。这些是第三方观察，不是稳定官方接口。
+ * 保留菜单/代码块的实色，不把所有 surface 设透明。
+ * 未使用这些变量的未来版本会降低视觉效果，但不会改动交互。
+ */
+html[data-nebula-enabled="true"],
+html[data-nebula-enabled="true"] body,
+html[data-nebula-enabled="true"] :is([data-theme="dark"], [data-theme="light"], .dark, .light):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  --main-surface-primary: rgb(10 19 34 / var(--nebula-panel-alpha)) !important;
+  --main-surface-secondary: rgb(20 33 53 / 0.94) !important;
+  --main-surface-tertiary: #243650 !important;
+  --sidebar-surface-primary: rgb(8 17 32 / var(--nebula-panel-alpha)) !important;
+  --sidebar-surface-secondary: #1b2c45 !important;
+  --sidebar-surface-tertiary: #233a58 !important;
+  --message-surface: rgb(24 42 66 / 0.94) !important;
+  --bg-primary: rgb(10 19 34 / var(--nebula-panel-alpha)) !important;
+  --bg-secondary: rgb(19 32 51 / 0.96) !important;
+  --bg-tertiary: #243650 !important;
+  --bg-elevated-primary: #142339 !important;
+  --bg-elevated-secondary: #192b44 !important;
+  --surface-primary: rgb(10 19 34 / var(--nebula-panel-alpha)) !important;
+  --surface-secondary: #1b2c45 !important;
+  --surface-tertiary: #243650 !important;
+  --composer-surface: rgb(11 23 41 / var(--nebula-composer-alpha)) !important;
+  --composer-surface-primary: rgb(11 23 41 / var(--nebula-composer-alpha)) !important;
+  --composer-surface-secondary: #1b2c45 !important;
+  --color-surface: rgb(10 19 34 / var(--nebula-panel-alpha)) !important;
+  --color-surface-secondary: #1b2c45 !important;
+  --color-background-panel: rgb(11 23 41 / var(--nebula-composer-alpha)) !important;
+  --color-background-composer-primary: rgb(11 23 41 / var(--nebula-composer-alpha)) !important;
+  --color-text-primary: #edf4ff !important;
+  --color-text-secondary: #bdcce1 !important;
+  --text-primary: #edf4ff !important;
+  --text-secondary: #bdcce1 !important;
+  --text-tertiary: #99acc6 !important;
+  --text-quaternary: #8194b0 !important;
+  --text-inverted: #06111e !important;
+  --border-light: rgb(151 193 228 / 0.18) !important;
+  --border-medium: rgb(151 193 228 / 0.30) !important;
+  --border-heavy: rgb(151 193 228 / 0.43) !important;
+}
+
+/* 常规主区域/应用外壳：仅取消自身底色，不重设 position、display 或 overflow。 */
+html[data-nebula-enabled="true"] body > div:not([contenteditable="true"], [role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]),
+html[data-nebula-enabled="true"] main:not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  background-color: transparent !important;
+}
+
+/*
+ * 输入表面与布局外壳分别处理：0.1.3 修复“黑胶囊外套方形青框”。
+ * Work 使用明确 composer 表面；普通聊天旧结构可能是 bg-token-* / cursor-text。
+ * 旧候选必须位于已识别输入容器内，包含编辑器，并取最内层；不按随机类名猜测。
+ * 绘制、fallback 和清底共享同一组候选，:where 统一分支权重，避免补丁压不过旧规则。
+ * 不修改任何容器尺寸、原生圆角或焦点 outline。未知结构只保留原 fallback。
+ * data-composer-* 是跨环境候选，Chrome 实际账号是否使用仍需网页证据。
+ */
+html[data-nebula-enabled="true"] :where(:is(#composer-background, [data-testid="composer"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))):has(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]), :is(.bg-token-bg-primary, .bg-token-main-surface-primary, .bg-surface-primary, .cursor-text) :is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"])):not(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout])), :is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]) :is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]), :is(#composer-background, [data-testid="composer"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"])), .composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]) :is(#composer-background, [data-testid="composer"], form, footer, .bg-surface-primary, .bg-surface-secondary, .bg-token-main-surface-primary, .bg-token-bg-primary, .cursor-text):not(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout])):not(button, a, input, textarea, select, [role="button"], [aria-current], [aria-selected="true"])):where(:not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper])):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *)) {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+/* 先清重复表面，再将边缘和底色画到同一个真正的输入表面。
+ * :has 内只用平坦的“表面 后代编辑器”条件，不嵌套 :has，防止分支被浏览器忽略。 */
+html[data-nebula-enabled="true"] :where(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]):not(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]) *), :is(#composer-background, [data-testid="composer"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))) :is(.bg-token-bg-primary, .bg-token-main-surface-primary, .bg-surface-primary, .cursor-text):has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"])):not(:has(:is(.bg-token-bg-primary, .bg-token-main-surface-primary, .bg-surface-primary, .cursor-text) :is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))):not(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout])):not(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]) *):not(:has(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]))), :is(#composer-background, [data-testid="composer"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))):not(:has(:is(.composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]), :is(.bg-token-bg-primary, .bg-token-main-surface-primary, .bg-surface-primary, .cursor-text) :is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))):not(:is(#composer-background, [data-testid="composer"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"])), .composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout]) *)):where(:not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper])):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *)) {
+  --color-surface: transparent !important;
+  --color-surface-secondary: transparent !important;
+  --color-background-panel: transparent !important;
+  --color-background-composer-primary: transparent !important;
+  --composer-surface: transparent !important;
+  --composer-surface-primary: transparent !important;
+  --main-surface-primary: transparent !important;
+  background: rgb(var(--nebula-composer-rgb, 11 23 41) / var(--nebula-composer-alpha)) !important;
+  box-shadow: inset 0 0 0 1px rgb(var(--nebula-accent-rgb) / var(--nebula-edge-alpha, 0.42)), 0 0 18px rgb(var(--nebula-accent-rgb) / 0.04) !important;
+  backdrop-filter: blur(var(--nebula-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--nebula-blur)) !important;
+}
+/* 写作/文档页也可能使用 ProseMirror；仅对已识别输入区内的编辑器着色。 */
+html[data-nebula-enabled="true"] :where(#prompt-textarea, :is(#composer-background, [data-testid="composer"], .composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], [data-composer-surface-variant][data-composer-layout], form[data-type="unified-composer"], form[class~="group/composer"], form:has(#prompt-textarea), form:has(.ProseMirror[contenteditable="true"]), form:has([data-codex-composer="true"][contenteditable="true"])) :is(.ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"])):where(:not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper])):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *)) {
+  background: transparent !important;
+  color: #edf4ff !important;
+  caret-color: var(--nebula-accent);
+}
+
+/*
+ * 侧栏外壳兼容旧 id、新 app-shell 语义类与已观察到的 test-id。
+ * 避免 [class*="sidebar"] 误命中分组标题，也不对所有 aside/nav 应用规则。
+ */
+html[data-nebula-enabled="true"] :is(#sidebar, #stage-slideover-sidebar, #stage-sidebar-tiny-bar, aside.app-shell-left-panel, [data-testid="sidebar"], [data-testid="history-sidebar"], [data-testid="history-panel"], [data-testid="left-sidebar"]):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  --sidebar-surface-primary: transparent !important;
+  --main-surface-primary: transparent !important;
+  --bg-primary: transparent !important;
+  --color-surface: transparent !important;
+  --color-background-panel: transparent !important;
+  /* 选中及 hover 有独立底色；不能跟容器变量一起清空。 */
+  --sidebar-surface-secondary: #1b2c45 !important;
+  --sidebar-surface-tertiary: #233a58 !important;
+  --color-surface-secondary: #1b2c45 !important;
+  background: rgb(var(--nebula-sidebar-rgb, 8 17 32) / var(--nebula-panel-alpha)) !important;
+  color: #edf4ff !important;
+  box-shadow: inset -1px 0 0 rgb(var(--nebula-accent-rgb) / 0.2) !important;
+  /* 不对整个侧栏施加 filter：它会改动内部 fixed/absolute 元素的定位参照。 */
+}
+/* 只清理已识别的容器表面；按钮、链接、选中项和弹层不会落入此规则。 */
+html[data-nebula-enabled="true"] :is(#sidebar, #stage-slideover-sidebar, aside.app-shell-left-panel, [data-testid="sidebar"], [data-testid="history-sidebar"], [data-testid="history-panel"], [data-testid="left-sidebar"]) :is(nav, header, footer, .bg-surface-primary, .bg-surface-secondary, .bg-token-sidebar-surface-primary, .bg-token-main-surface-primary, .bg-token-bg-primary, [class~="bg-(--sidebar-surface-primary)"]):not(button, a, input, textarea, select, [role="button"], [aria-current], [aria-selected="true"], [role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  background: transparent !important;
+}
+
+/*
+ * 表面内部可能再挂一个局部主题；它自身的变量会胜过父级继承值。
+ * 只取消已识别侧栏/输入区内主题节点的主要表面变量，保留选中/hover 次要色。
+ */
+html[data-nebula-enabled="true"] :is(#sidebar, #stage-slideover-sidebar, #stage-sidebar-tiny-bar, aside.app-shell-left-panel, [data-testid="sidebar"], [data-testid="history-sidebar"], [data-testid="history-panel"], [data-testid="left-sidebar"], #composer-background, [data-testid="composer"], .composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(#prompt-textarea), form:has(.ProseMirror[contenteditable="true"])) :is([data-theme="dark"], [data-theme="light"], .dark, .light):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  --main-surface-primary: transparent !important;
+  --sidebar-surface-primary: transparent !important;
+  --bg-primary: transparent !important;
+  --surface-primary: transparent !important;
+  --color-surface: transparent !important;
+  --color-background-panel: transparent !important;
+  --color-background-composer-primary: transparent !important;
+  --composer-surface: transparent !important;
+  --composer-surface-primary: transparent !important;
+}
+
+/* 通透档额外作用于已观察到的站点 surface 类。若命名改动，仅此增强消失。 */
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] :is(main, #thread, #main) :is(.bg-token-main-surface-primary, .bg-token-bg-primary):not(#composer-background, [data-testid="composer"], .composer-surface-chrome, [class~="bg-(--composer-surface-primary)"], form[data-type="unified-composer"], form[class~="group/composer"], form:has(#prompt-textarea), form:has(.ProseMirror[contenteditable="true"])):not(:is(.bg-token-bg-primary, .bg-token-main-surface-primary, .bg-surface-primary, .cursor-text):has(:is(#prompt-textarea, .ProseMirror[contenteditable="true"], [data-codex-composer="true"][contenteditable="true"]))):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  background-color: transparent !important;
+}
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] :is(#thread, #main):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *),
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] body > div:not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) {
+  --main-surface-primary: transparent !important;
+}
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] main header:not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  background: rgb(9 19 35 / 0.6) !important;
+  /* 顶部布局外壳只调底色，保留原有定位与层叠关系。 */
+}
+
+/* 新主题节点自带画布变量，通透档只在非弹层作用域取消主要画布色。 */
+html[data-nebula-enabled="true"][data-nebula-mode="glass"],
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] body,
+html[data-nebula-enabled="true"][data-nebula-mode="glass"] :is([data-theme="dark"], [data-theme="light"], .dark, .light):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  --color-surface: transparent !important;
+}
+
+/* 菜单与弹窗应清晰：覆盖前述通透规则，并把内层语义底色恢复为实色。 */
+html[data-nebula-enabled="true"] :is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) {
+  --main-surface-primary: #142339 !important;
+  --bg-primary: #142339 !important;
+  --surface-primary: #142339 !important;
+  --surface-secondary: #192b44 !important;
+  --color-surface: #142339 !important;
+  --color-surface-secondary: #192b44 !important;
+  --color-background-panel: #142339 !important;
+  --color-background-composer-primary: #142339 !important;
+  --composer-surface-primary: #142339 !important;
+  --composer-surface: #142339 !important;
+  --sidebar-surface-primary: #142339 !important;
+  background-color: #142339 !important;
+  color: #edf4ff !important;
+}
+/* 弹层内可再挂 data-theme；在同一节点恢复变量，避免继承侧栏的透明设置。 */
+html[data-nebula-enabled="true"] :is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) :is([data-theme], .dark, .light, .bg-surface-primary, .bg-token-main-surface-primary, .bg-token-bg-primary) {
+  --main-surface-primary: #142339 !important;
+  --bg-primary: #142339 !important;
+  --surface-primary: #142339 !important;
+  --color-surface: #142339 !important;
+  --color-surface-secondary: #192b44 !important;
+  --color-background-panel: #142339 !important;
+  --color-background-composer-primary: #142339 !important;
+  --composer-surface-primary: #142339 !important;
+  --composer-surface: #142339 !important;
+  --sidebar-surface-primary: #142339 !important;
+  background-color: #142339 !important;
+}
+
+/*
+ * 用户区域是滚动项目列表的遮挡面，必须保留实底，不能跟导航一起全透明。
+ * 来源：chatgpt-exporter 在 2026-09-20/26 观察到的 scroll/profile 挂钩。
+ * 只识别 footer、明确底部标记、滚动区紧邻的菜单区域和 profile 按钮直接父级；
+ * 不对任意 :has(profile) 祖先上色，以免误罩整棵侧栏。
+ */
+html[data-nebula-enabled="true"] :is(#sidebar, #stage-slideover-sidebar, #stage-sidebar-tiny-bar, aside.app-shell-left-panel, [data-testid="sidebar"], [data-testid="history-sidebar"], [data-testid="history-panel"], [data-testid="left-sidebar"]) :is(footer, .sidebar-footer, [data-testid="sidebar-footer"], [data-app-action-sidebar-scroll] + :has(button[aria-haspopup="menu"]), :has(> [data-app-action-sidebar-scroll]) + :has(button[aria-haspopup="menu"]), :has(> [data-testid="accounts-profile-button"]), [data-testid="accounts-profile-button"]):not([data-testid="accounts-profile-button"]:is(:hover, :focus-visible)):not([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]):not(:is([role="dialog"], [role="alertdialog"], [role="menu"], [role="listbox"], [data-radix-popper-content-wrapper]) *) {
+  --sidebar-surface-primary: #0b1729 !important;
+  --main-surface-primary: #0b1729 !important;
+  --bg-primary: #0b1729 !important;
+  --color-surface: #0b1729 !important;
+  --color-background-panel: #0b1729 !important;
+  background: #0b1729 !important;
+  color: #edf4ff !important;
+}
+
+/* 只给站点已有焦点轮廓换色，不增加/移除可聚焦元素。 */
+html[data-nebula-enabled="true"] :is(button, a, input, textarea, [contenteditable="true"]):focus-visible {
+  outline-color: var(--nebula-accent) !important;
+}
+
+} /* 独有层保留，启用选择器停用后不匹配；不改变站点自己各层的相对顺序。 */
